@@ -51,3 +51,17 @@ export const introAbout = style({
     },
   },
 });
+
+export const socialFrame = style({
+  marginTop: 40,
+  display: "flex",
+  justifyContent: "flex-end",
+});
+
+export const social = style({
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "row",
+  columnGap: 5,
+  marginLeft: 10,
+});

@@ -1,8 +1,7 @@
 import Three from "./Three";
 import * as styles from "./Intro.css";
-import ToggleSwitch from "../UI/ToggleSwitch";
-import { Suspense } from "react";
-import ThreeFallback from "./ThreeFallback";
+import { socialLinks } from "@/app/constants/socials";
+import Link from "next/link";
 
 export default function Intro() {
   return (
@@ -24,10 +23,17 @@ export default function Intro() {
           <Three />
         </div>
       </div>
-      <div>
-        <p>asdfadsf</p>
-        <p>asdfadsf</p>
-        <p>asdfadsf</p>
+      <div className={styles.socialFrame}>
+        {socialLinks.map((link) => {
+          return (
+            <Link legacyBehavior href={link.route} key={link.label}>
+              <a target="_blank" rel="noreferrer" className={styles.social}>
+                <link.imgURL />
+                <p>{link.label}</p>
+              </a>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
