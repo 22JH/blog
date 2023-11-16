@@ -1,0 +1,51 @@
+.resumeContainer {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  color: rgb(226, 226, 226);
+}
+
+.resumeContainer h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.resumeContainer h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+}
+.resumeContainer p {
+  font-size: 14px;
+  text-indent: 10px;
+  line-height: 25px;
+}
+.resumeContainer p::before {
+  content: "• ";
+}
+.reusmeName {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  column-gap: 10px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgb(40, 40, 40);
+  padding-bottom: 10px;
+}
+
+.resumeIntro,
+.resumeCarereers,
+.resumeProjects,
+.resumeExperience,
+.resumeAwards {
+  margin-top: 16px;
+  border-bottom: 1px solid rgb(40, 40, 40);
+  padding-bottom: 16px;
+}
+.project,
+.experience {
+  margin-bottom: 16px;
+}
