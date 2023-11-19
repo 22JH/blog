@@ -16,7 +16,7 @@ export const topbar = style({
 
 export const topbarLogo = style({
   color: "white",
-  marginLeft: "30px",
+  marginLeft: "50px",
   "@media": {
     "(max-width: 640px)": {
       position: "absolute",

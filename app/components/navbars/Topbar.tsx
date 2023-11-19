@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { sidebarLinks } from "../../constants/index";
 import * as styles from "./Topbar.css";
+import Logo from "../svg/navbar/Logo";
 import ToggleBtn from "./ToggleTheme/ToggleBtn";
 
 export default function Topbar() {
   return (
     <nav className={styles.topbar}>
       <Link href="/" className={styles.topbarLogo}>
-        <div>
-          <h1>이주형</h1>
-        </div>
+        <Logo />
       </Link>
       <div className={styles.topbarLargeScreen}>
         {sidebarLinks.map((link) => {
