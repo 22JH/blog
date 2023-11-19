@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const comments = style({
@@ -45,8 +46,5 @@ export const commenterName = style({
 
 export const commentDate = style({
   fontSize: "12px",
-  color: "rgb(100, 100, 100)",
-});
-export const commentText = style({
-  color: "rgb(200, 200, 200)",
+  color: vars.themeColor.fontColor.accentSubColor,
 });

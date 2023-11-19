@@ -29,6 +29,8 @@
     "bcrypt": "^5.1.1",
     "dayjs": "^1.11.10",
     "firebase": "^10.5.2",
+    "flubber": "^0.4.2",
+    "framer-motion": "^10.16.5",
     "highlight.js": "^11.9.0",
     "i": "^0.3.7",
     "mongoose": "^7.6.3",

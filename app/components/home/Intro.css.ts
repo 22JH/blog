@@ -2,15 +2,15 @@ import { style } from "@vanilla-extract/css";
 
 export const introContainer = style({
   width: "100%",
-  height: "100%",
   display: "flex",
   color: "rgb(220,220,220)",
   alignContent: "center",
   justifyContent: "center",
   flexDirection: "column",
+  height: "calc(100dvh - 80px)",
   "@media": {
     "(max-width: 640px)": {
-      flexDirection: "column-reverse",
+      height: "calc(100dvh - 80px - 68px)",
     },
   },
 });
@@ -18,28 +18,26 @@ export const introContainer = style({
 export const introFrame = style({
   display: "flex",
   flexDirection: "row",
+  "@media": {
+    "(max-width: 1000px)": {
+      flexDirection: "column-reverse",
+    },
+  },
 });
 
 export const introThreeModel = style({
   flex: 1,
   display: "flex",
   position: "relative",
-  backgroundColor: "rgb(16,16,16)",
   minWidth: 200,
   minHeight: 0,
   alignItems: "center",
   justifyContent: "center",
-  // "@media": {
-  //   "(max-width: 640px)": {
-  //     height: 300,
-  //     flex: 1.5,
-  //   },
-  // },
 });
 
 export const introAbout = style({
   flex: 1.5,
-  fontSize: 16,
+  fontSize: 22,
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -56,6 +54,11 @@ export const socialFrame = style({
   marginTop: 40,
   display: "flex",
   justifyContent: "flex-end",
+  "@media": {
+    "(max-width: 640px)": {
+      marginTop: 10,
+    },
+  },
 });
 
 export const social = style({

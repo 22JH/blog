@@ -1,4 +1,6 @@
-export default function SendBtn({ color }: { color: string }) {
+import { vars } from "@/app/styles/themes/theme.css";
+
+export default function SendBtn({ comment }: { comment: boolean }) {
   return (
     <svg
       width="18"
@@ -9,7 +11,11 @@ export default function SendBtn({ color }: { color: string }) {
     >
       <path
         d="M23.2 0.799988L0.799988 10.4L8.79999 15.2M23.2 0.799988L13.6 23.2L8.79999 15.2M23.2 0.799988L8.79999 15.2"
-        stroke={color}
+        stroke={
+          comment
+            ? vars.themeColor.buttonColor.activeColor
+            : vars.themeColor.buttonColor.notActiveColor
+        }
         strokeWidth="2px"
         strokeLinecap="square"
         strokeLinejoin="round"

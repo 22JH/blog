@@ -49,6 +49,7 @@ export const category = style({
   opacity: 0,
   animation: `${slideInFromLeft} 0.4s cubic-bezier(0.145, 0.86, 0.43, 1) forwards`,
   transform: "translateX(-100%)",
+  textWrap: "nowrap",
 });
 
 export const categoryColor = createVar();

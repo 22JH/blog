@@ -1,15 +1,9 @@
-/**@jsxImportSource @emotion/react */
-
-"use client";
-
 import Link from "next/link";
 import { sidebarLinks } from "../../constants/index";
-import { usePathname } from "next/navigation";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import * as styles from "./Topbar.css";
+import ToggleBtn from "./ToggleTheme/ToggleBtn";
 
 export default function Topbar() {
-  const pathname = usePathname();
   return (
     <nav className={styles.topbar}>
       <Link href="/" className={styles.topbarLogo}>
@@ -19,9 +13,6 @@ export default function Topbar() {
       </Link>
       <div className={styles.topbarLargeScreen}>
         {sidebarLinks.map((link) => {
-          const isActive =
-            (pathname.includes("/post") && link.route.includes("/post")) ||
-            pathname === link.route;
           return (
             <Link
               href={link.route}
@@ -29,18 +20,11 @@ export default function Topbar() {
               className={styles.topBarContent}
             >
               <link.imgURL aria-label={link.label} />
-              <p
-                style={assignInlineVars({
-                  color: isActive ? "rgb(226,226,226)" : "#464646",
-                })}
-                className={styles.topBarText}
-              >
-                {link.label}
-              </p>
             </Link>
           );
         })}
       </div>
+      <ToggleBtn />
     </nav>
   );
 }

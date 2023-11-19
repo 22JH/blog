@@ -2,22 +2,11 @@
 
 "use client";
 
-import { css } from "@emotion/react";
-
-const pageBackContainer = css`
-  cursor: pointer;
-  fill: rgb(42, 42, 42);
-
-  &:hover {
-    path {
-      fill: rgb(200, 200, 200);
-    }
-  }
-`;
+import * as styles from "./PageBtn.css";
 
 export default function PageBack() {
   return (
-    <div css={pageBackContainer}>
+    <div className={styles.pageBtnContainer}>
       <svg
         width="15"
         height="15"
@@ -25,7 +14,7 @@ export default function PageBack() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M3 7.5L11 0V15L3 7.5Z" fill="rgb(42,42,42)" />
+        <path d="M3 7.5L11 0V15L3 7.5Z" className={styles.pageBtn} />
       </svg>
     </div>
   );

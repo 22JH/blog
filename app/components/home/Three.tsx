@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import ToggleSwitch from "../UI/ToggleSwitch";
 import ThreeFallback from "./ThreeFallback";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
+import * as styles from "./Three.css";
 
 export function Model({ showMaterial }: { showMaterial: boolean }) {
   const { nodes, materials }: any = useGLTF("/facemodel/face1.gltf");
@@ -50,16 +50,7 @@ export default function Three() {
     setShowMaterial((prev: boolean) => !prev);
   };
   return (
-    <div
-      style={assignInlineVars({
-        width: "100%",
-        height: "100%",
-        maxHeight: "350px",
-        minWidth: "200px",
-        position: "relative",
-        disply: "flex",
-      })}
-    >
+    <div className={styles.canvasFrame}>
       {progress === 100 && (
         <ToggleSwitch handleShowMaterial={handleShowMaterial} />
       )}

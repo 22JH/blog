@@ -10,14 +10,8 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import Prism from "prismjs";
 import Link from "next/link";
 import { changeKrUrl } from "@/app/lib/changeKrUrl";
-import {
-  customViewer,
-  detailNeighborPostBox,
-  detailNeighborPostBoxLink,
-  detailNeighborPostFrame,
-  detailNeighborPostText,
-  detailViewerContainer,
-} from "./DetailViewer.css";
+import * as styles from "./DetailViewer.css";
+import { assignInlineVars } from "@vanilla-extract/dynamic";
 
 interface PropType {
   post: {
@@ -33,38 +27,42 @@ export default function DetailViewer({
   nextPostTitle,
 }: PropType) {
   return (
-    <div className={detailViewerContainer}>
-      <div className={customViewer}>
+    <div className={styles.detailViewerContainer}>
+      <div className={styles.customViewer}>
         <Viewer
           height="100%"
           initialValue={post?.content || ""}
           plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
         />
       </div>
-      <div className={detailNeighborPostFrame}>
-        <div className={detailNeighborPostBox}>
+      <div className={styles.detailNeighborPostFrame}>
+        <div className={styles.detailNeighborPostBox}>
           {previousPostTitle && (
             <Link
               href={changeKrUrl(previousPostTitle)}
-              className={detailNeighborPostBoxLink}
+              className={styles.detailNeighborPostBoxLink}
               style={{ alignItems: "flex-start" }}
             >
-              <span>Previous</span>
-              <h3 className={detailNeighborPostText}>{previousPostTitle}</h3>
+              <span className={styles.detailNeighborPostDirection}>
+                Previous
+              </span>
+              <h3 className={styles.detailNeighborPostText}>
+                {previousPostTitle}
+              </h3>
             </Link>
           )}
         </div>
-        <div className={detailNeighborPostBox}>
+        <div className={styles.detailNeighborPostBox}>
           {nextPostTitle && (
             <Link
               href={changeKrUrl(nextPostTitle)}
-              className={detailNeighborPostBoxLink}
-              style={{ alignItems: "flex-end" }}
+              className={styles.detailNeighborPostBoxLink}
+              style={assignInlineVars({ alignItems: "flex-end" })}
             >
-              <span>Next</span>
+              <span className={styles.detailNeighborPostDirection}>Next</span>
               <h3
-                className={detailNeighborPostText}
-                style={{ direction: "ltr", textAlign: "end" }}
+                className={styles.detailNeighborPostText}
+                style={assignInlineVars({ direction: "ltr", textAlign: "end" })}
               >
                 {nextPostTitle}
               </h3>

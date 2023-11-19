@@ -2,7 +2,7 @@
 
 import { GusetBookType } from "@/app/types/gusetBook.type";
 import Image from "next/image";
-import styles from "@/app/(routes)/guest-book/guestBook.module.css";
+import * as styles from "./GuestBookComments.css";
 import { getRelativeTime } from "@/app/lib/getRelativeTime";
 import { useEffect, useRef } from "react";
 

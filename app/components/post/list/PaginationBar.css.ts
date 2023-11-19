@@ -1,12 +1,12 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { createVar, style } from "@vanilla-extract/css";
-
-export const activeColor = createVar();
 
 export const paginationBarContainer = style({
   width: "100%",
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
+  marginBottom: 100,
 });
 
 export const numberContainer = style({
@@ -18,13 +18,9 @@ export const numberContainer = style({
 
 export const pageNumber = style({
   display: "flex",
-  color: activeColor,
   fontSize: "20px",
   margin: "0 calc(80% / 5 / 2)",
   ":hover": {
-    color: "rgb(200, 200, 200)",
+    color: vars.themeColor.fontColor.accentColor,
   },
-});
-export const isActive = style({
-  color: "rgb(200, 200, 200)",
 });

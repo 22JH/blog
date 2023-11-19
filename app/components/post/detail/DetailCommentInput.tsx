@@ -79,7 +79,7 @@ export default function DetailCommentInput({ postId, userInfo }: PropType) {
           onKeyDown={(e) => handleEnter(e)}
         />
         <div className={styles.submitBtn} onClick={() => submitComment()}>
-          <SendBtn color={comment ? "rgb(200,200,200)" : "rgb(30,30,30)"} />
+          <SendBtn comment={!!comment} />
         </div>
       </div>
     </div>

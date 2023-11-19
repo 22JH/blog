@@ -14,7 +14,7 @@ export default function PostList({ posts, category }: PropType) {
   return (
     <>
       <h1 className={styles.categoryTitle}>{category}</h1>
-      <div className={styles.postConatiner}>
+      <div className={styles.postContainer}>
         {posts.map((postInfo: PostType) => {
           const date = getRelativeTime(postInfo.createdAt!);
           return (
@@ -54,7 +54,7 @@ export default function PostList({ posts, category }: PropType) {
                   {postInfo.categories.map((category) => {
                     return (
                       <h3 className={styles.postCategory} key={category._id}>
-                        {category.label} &nbsp;
+                        {category.label}
                       </h3>
                     );
                   })}

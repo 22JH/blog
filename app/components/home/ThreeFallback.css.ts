@@ -19,6 +19,5 @@ export const loadingBox = style({
   zIndex: 3,
   opacity: 0,
   position: "absolute",
-  background: "rgb(20,20,20)",
   animation: `${gradientWave} 2s ease infinite`,
 });

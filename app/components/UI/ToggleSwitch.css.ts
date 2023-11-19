@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const wrapper = style({
@@ -20,19 +21,18 @@ export const switchLabel = style({
   width: "53px",
   height: "23px",
   background: "transparent",
-  border: "2px solid rgb(226,226,226)",
+  border: vars.themeColor.borderColor.hoverColor,
+  borderWidth: 1,
+  borderStyle: "solid",
   borderRadius: "20px",
   transition: "0.2s",
   ":hover": {
-    background: "rgb(56,56,56)",
+    background: vars.themeColor.backgroundColor.accentColor,
   },
   selectors: {
     [`${toggleSwitch}:checked + &`]: {
-      background: "transparent",
-      border: "2px solid rgb(226,226,226)",
-    },
-    [`${toggleSwitch}:checked+&:hover`]: {
-      background: "rgb(56,56,56)",
+      background: vars.themeColor.borderColor.hoverColor,
+      border: vars.themeColor.borderColor.hoverColor,
     },
   },
 });
@@ -40,18 +40,17 @@ export const switchLabel = style({
 export const onOffBtn = style({
   position: "absolute",
   top: "3px",
-  left: "3px",
+  left: "4px",
   display: "inline-block",
   width: "15px",
   height: "15px",
   borderRadius: "20px",
-  background: "rgb(226,226,226)",
+  background: vars.themeColor.borderColor.hoverColor,
   transition: "0.2s",
   selectors: {
     [`${toggleSwitch}:checked+${switchLabel} > &`]: {
-      left: "30px",
-      background: "rgb(226,226,226)",
-      boxShadow: "1px 2px 3px #00000020",
+      left: 35,
+      background: vars.themeColor.backgroundColor.bodyColor,
     },
   },
 });

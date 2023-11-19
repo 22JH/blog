@@ -1,10 +1,13 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { style, globalStyle } from "@vanilla-extract/css";
 
 export const detailViewerContainer = style({
   marginTop: 30,
   display: "flex",
   flexDirection: "column",
-  borderBottom: "1px solid rgb(36, 36, 36)",
+  borderBottom: vars.themeColor.borderColor.notHoverColor,
+  borderBottomStyle: "solid",
+  borderBottomWidth: "1px",
 });
 
 export const detailNeighborPostFrame = style({
@@ -27,14 +30,17 @@ export const detailNeighborPostBoxLink = style({
   height: "100%",
   display: "flex",
   flexDirection: "column",
-  backgroundColor: "rgb(30, 30, 30)",
-  color: "rgb(226, 226, 226)",
+  backgroundColor: vars.themeColor.boxColor.notHoverColor,
   padding: "5px 15px",
   justifyContent: "space-evenly",
   transition: "0.1s all",
   ":hover": {
-    backgroundColor: "rgb(94, 94, 94)",
+    backgroundColor: vars.themeColor.boxColor.hoverColor,
   },
+});
+
+export const detailNeighborPostDirection = style({
+  color: vars.themeColor.fontColor.accentSubColor,
 });
 
 export const detailNeighborPostText = style({
@@ -48,17 +54,21 @@ export const detailNeighborPostText = style({
 export const customViewer = style({});
 
 globalStyle(`${customViewer} > *`, {
-  color: "rgba(236, 236, 236)",
+  color: vars.themeColor.fontColor.textColor,
 });
 globalStyle(`${customViewer} pre`, {
-  backgroundColor: "rgb(24, 24, 24)",
+  backgroundColor: vars.themeColor.backgroundColor.accentColor,
 });
 
 globalStyle(`${customViewer} p`, {
   fontSize: "16px",
-  color: "white",
+  color: vars.themeColor.fontColor.textColor,
 });
 
 globalStyle(`${customViewer} .operator`, {
   backgroundColor: "inherit",
+});
+
+globalStyle(`${customViewer} code`, {
+  backgroundColor: vars.themeColor.backgroundColor.accentColor,
 });

@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { keyframes, style } from "@vanilla-extract/css";
 
 const slideInFromLeft = keyframes({
@@ -12,17 +13,16 @@ const slideInFromLeft = keyframes({
 });
 
 export const categoryTitle = style({
-  color: "rgba(236, 236, 236)",
   fontWeight: 500,
   textTransform: "uppercase",
-  marginTop: "10px",
-  marginLeft: "10px",
+  marginTop: 10,
+  marginLeft: 10,
   opacity: 0,
   animation: `${slideInFromLeft} 1s cubic-bezier(0.145, 0.86, 0.43, 1) forwards`,
   transform: "translateX(-5%)",
 });
 
-export const postConatiner = style({
+export const postContainer = style({
   width: "100%",
   height: "auto",
   display: "flex",
@@ -32,9 +32,11 @@ export const postConatiner = style({
 
 export const postCategory = style({
   margin: 0,
-  fontSize: "16px",
-  color: "rgba(56, 56, 56)",
-  marginBottom: "15px",
+  fontSize: 14,
+  color: vars.themeColor.fontColor.accentSubColor,
+  backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  borderRadius: 5,
+  padding: "2px 5px",
   fontWeight: 600,
 });
 
@@ -46,9 +48,11 @@ export const post = style({
   height: "fit-content",
   padding: "20px 10px 35px 10px",
   margin: "15px 0",
-  borderBottom: "1px solid rgba(67, 67, 67, 0.5)",
+  borderBottomWidth: 1.5,
+  borderBottomStyle: "solid",
+  borderBottomColor: vars.themeColor.borderColor.notHoverColor,
   ":hover": {
-    borderBottom: "1px solid white",
+    borderBottomColor: vars.themeColor.borderColor.hoverColor,
     transition: "0.3s all",
   },
   "@media": {
@@ -103,20 +107,21 @@ export const titleAndDate = style({
 
 export const title = style({
   margin: 0,
-  fontSize: "16px",
+  fontSize: 20,
   marginBottom: "10px",
-  color: "rgb(236, 236, 236)",
 });
 
 export const date = style({
+  color: vars.themeColor.fontColor.accentSubColor,
   whiteSpace: "nowrap",
-  color: "rgba(94, 94, 94)",
   marginLeft: "10px",
 });
 
 export const categoryFrame = style({
   display: "flex",
   flexDirection: "row",
+  gap: 5,
+  marginBottom: "15px",
 });
 
 export const previewContent = style({

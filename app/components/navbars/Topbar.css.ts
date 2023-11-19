@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const topbar = style({
@@ -8,14 +9,9 @@ export const topbar = style({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  backgroundColor: "rgba(16, 16, 16, 0.8)",
-  zIndex: 1,
   backdropFilter: "blur(15px)",
-  // "@media": {
-  //   "(max-width: 640px)": {
-  //     height: 60,
-  //   },
-  // },
+  backgroundColor: vars.themeColor.backgroundColor.navbarColor,
+  zIndex: 1,
 });
 
 export const topbarLogo = style({

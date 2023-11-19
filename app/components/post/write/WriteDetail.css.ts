@@ -57,7 +57,6 @@ export const categoryHashtag = style({
 
 export const previewText = style({
   width: "100%",
-  // height: "100px",
   backgroundColor: "black",
   height: "fit",
   color: "rgba(236, 236, 236)",

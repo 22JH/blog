@@ -1,13 +1,15 @@
-import { styleVariants } from "@vanilla-extract/css";
+export const white = {
+  100: "rgb(245,245,245)",
+  200: "rgb(226,226,226)",
+  300: "rgb(220,220,220)",
+  400: "rgb(200,200,200)",
+  500: "rgb(165,165,165)",
+};
 
-export const white = styleVariants({
-  100: { color: "rgb(226,226,266)" },
-  200: { color: "rgb(220,220,220)" },
-  300: { color: "rgb(200,200,200)" },
-});
-
-export const grey = styleVariants({
-  100: { color: "rgb(96,96,96)" },
-  200: { color: "rgb(56,56,56)" },
-  300: { color: "rgb(30,30,30)" },
-});
+export const grey = {
+  100: "rgb(96,96,96)",
+  200: "rgb(77,77,77)",
+  300: "rgb(56,56,56)",
+  400: "rgb(30,30,30)",
+  500: "rgb(16,16,16)",
+};

@@ -1,39 +1,12 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 
 import Link from "next/link";
 import * as styles from "./PaginationBar.css";
-import { css } from "@emotion/react";
 import PageBack from "../../svg/pagination/PageBack";
 import PageNext from "../../svg/pagination/PageNext";
 import { useEffect, useState } from "react";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-
-const paginationBarContainer = css`
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  .numberContainer {
-    width: 80%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    .pageNumber {
-      display: flex;
-      color: rgb(42, 42, 42);
-      font-size: 20px;
-      &:hover {
-        color: rgb(200, 200, 200);
-      }
-      margin: 0 calc(80% / 5 / 2);
-    }
-    .isActive {
-      color: rgb(200, 200, 200);
-    }
-  }
-`;
+import { vars } from "@/app/styles/themes/theme.css";
 
 export default function PaginationBar({
   page,
@@ -53,6 +26,7 @@ export default function PaginationBar({
     }
     setPages(pageArr);
   }, [index]);
+
   const handleBackBtn = () => {
     if (index === 1) return;
     setIndex((prev: number) => prev - 5);
@@ -81,8 +55,10 @@ export default function PaginationBar({
               }}
               className={styles.pageNumber}
               style={assignInlineVars({
-                [styles.activeColor]:
-                  page === number ? "rgb(200,200,200)" : "rgb(42,42,42)",
+                color:
+                  page === number
+                    ? vars.themeColor.fontColor.accentColor
+                    : vars.themeColor.fontColor.accentSubColor,
               })}
               key={number}
             >

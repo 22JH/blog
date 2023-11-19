@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { createVar, style } from "@vanilla-extract/css";
 
 export const thumbnailBorder = createVar();
@@ -32,9 +33,11 @@ export const comment = style({
   flex: 1,
   backgroundColor: "transparent",
   height: "fit-content",
-  color: "white",
+  color: vars.themeColor.fontColor.textColor,
   border: "none",
-  borderBottom: "1px solid rgb(64, 64, 64)",
+  borderBottom: vars.themeColor.borderColor.notHoverColor,
+  borderBottomStyle: "solid",
+  borderBottomWidth: 1,
   transition: "all 0.2s",
   marginTop: "10px",
   paddingBottom: "5px",
@@ -42,15 +45,18 @@ export const comment = style({
   paddingRight: "30px",
   fontSize: "16px",
   "::placeholder": {
-    color: "rgb(64, 64, 64)",
+    color: vars.themeColor.fontColor.subColor,
   },
   ":focus": {
-    borderBottom: "1px solid white",
+    outline: "none",
+    borderBottom: vars.themeColor.borderColor.hoverColor,
+    borderBottomStyle: "solid",
+    borderBottomWidth: 1,
   },
 });
 
 export const commentCount = style({
-  color: "white",
+  color: vars.themeColor.fontColor.accentColor,
 });
 
 export const submitBtn = style({

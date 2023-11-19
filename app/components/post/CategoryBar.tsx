@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import pageStore from "@/app/store/pageStore";
 import { useEffect } from "react";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { vars } from "@/app/styles/themes/theme.css";
 interface PropType {
   categories: SelectOption[];
   totalPost: number;
@@ -36,7 +37,9 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
           className={styles.categoryText}
           style={assignInlineVars({
             [styles.categoryColor]:
-              selectedCategory === "all" ? "rgb(236,236,236)" : "rgb(96,96,96)",
+              selectedCategory === "all"
+                ? vars.themeColor.buttonColor.activeColor
+                : vars.themeColor.buttonColor.notActiveColor,
           })}
           onClick={() => handleSelectCategory("all")}
           key="all"
@@ -57,8 +60,8 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
               className={styles.categoryText}
               style={assignInlineVars({
                 [styles.categoryColor]: isActive
-                  ? "rgb(236,236,236)"
-                  : "rgb(96,96,96)",
+                  ? vars.themeColor.buttonColor.activeColor
+                  : vars.themeColor.buttonColor.notActiveColor,
               })}
               onClick={() => handleSelectCategory(category.label)}
             >{`${category.label} (${category.count})`}</Link>
