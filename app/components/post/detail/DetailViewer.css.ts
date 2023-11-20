@@ -49,6 +49,7 @@ export const detailNeighborPostText = style({
   overflow: "hidden",
   textOverflow: "ellipsis",
   fontSize: "16px",
+  color: vars.themeColor.fontColor.textColor,
 });
 
 export const customViewer = style({});
@@ -61,8 +62,9 @@ globalStyle(`${customViewer} pre`, {
 });
 
 globalStyle(`${customViewer} p`, {
-  fontSize: "16px",
+  fontSize: 16,
   color: vars.themeColor.fontColor.textColor,
+  marginTop: 5,
 });
 
 globalStyle(`${customViewer} .operator`, {
@@ -71,4 +73,31 @@ globalStyle(`${customViewer} .operator`, {
 
 globalStyle(`${customViewer} code`, {
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  color: vars.themeColor.borderColor.hoverColor + "!important",
+});
+globalStyle(`${customViewer} h1`, {
+  color: vars.themeColor.fontColor.accentColor,
+  marginBottom: 18,
+});
+globalStyle(`${customViewer} h2`, {
+  color: vars.themeColor.fontColor.accentColor,
+  marginBottom: 18,
+});
+globalStyle(`${customViewer} h3`, {
+  color: vars.themeColor.fontColor.accentColor,
+  marginBottom: 18,
+});
+globalStyle(`${customViewer} h4`, {
+  color: vars.themeColor.fontColor.accentColor,
+  marginBottom: 18,
+});
+globalStyle(`${customViewer} h5`, {
+  color: vars.themeColor.fontColor.accentColor,
+  marginBottom: 18,
+});
+globalStyle(`${customViewer} ul`, {
+  marginTop: 10,
+});
+globalStyle(`${customViewer} li`, {
+  marginTop: 10,
 });

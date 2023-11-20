@@ -10,7 +10,7 @@ export const bottomBar = style({
   position: "fixed",
   bottom: 0,
   width: "100vw",
-  height: "68px",
+  height: "60px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",

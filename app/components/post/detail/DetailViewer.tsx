@@ -42,6 +42,7 @@ export default function DetailViewer({
               href={changeKrUrl(previousPostTitle)}
               className={styles.detailNeighborPostBoxLink}
               style={{ alignItems: "flex-start" }}
+              scroll={true}
             >
               <span className={styles.detailNeighborPostDirection}>
                 Previous
@@ -58,6 +59,7 @@ export default function DetailViewer({
               href={changeKrUrl(nextPostTitle)}
               className={styles.detailNeighborPostBoxLink}
               style={assignInlineVars({ alignItems: "flex-end" })}
+              scroll={true}
             >
               <span className={styles.detailNeighborPostDirection}>Next</span>
               <h3

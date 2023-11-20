@@ -71,7 +71,7 @@ export default function WriteDetail({
         previewContent,
       });
     }
-    router.push("/post/all/page=1");
+    router.push("/post/all?page=1");
   };
   useEffect(() => {
     const contentToInstance = editorRef.current.getInstance();

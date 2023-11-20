@@ -7,7 +7,6 @@ export const titleFrame = style({
   margin: "16px 0 5px 0",
   display: "flex",
   alignItems: "center",
-  // color: "rgba(236, 236, 236)",
 });
 
 export const title = style({
@@ -21,6 +20,10 @@ export const categoryFrame = style({
   flexDirection: "row",
   width: "fit-content",
   gap: 5,
+  overflow: "scroll",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
 });
 
 export const category = style({
@@ -30,7 +33,9 @@ export const category = style({
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
   borderRadius: 5,
   padding: "2px 5px",
-  fontWeight: 600,
+  // fontWeight: 600,
+  height: "fit-content",
+  whiteSpace: "nowrap",
 });
 
 export const dateAndTitleFrame = style({
@@ -43,4 +48,12 @@ export const dateAndTitleFrame = style({
   borderBottomWidth: 1,
   display: "flex",
   justifyContent: "space-between",
+  width: "100%",
+  rowGap: 10,
+  flexWrap: "wrap",
+});
+
+export const detailDate = style({
+  color: vars.themeColor.fontColor.accentSubColor,
+  display: "flex",
 });

@@ -30,6 +30,9 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: false,
+  experimental: {
+    webpackBuildWorker: true,
+  },
 };
 
 module.exports = withVanillaExtract(nextConfig);

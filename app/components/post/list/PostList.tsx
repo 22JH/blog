@@ -20,7 +20,7 @@ export default function PostList({ posts, category }: PropType) {
           return (
             <Link
               href={{ pathname: `/post/detail/${changeKrUrl(postInfo.title)}` }}
-              shallow={true}
+              // shallow={true}
               style={{ color: "white" }}
               key={postInfo._id}
               className={styles.post}
@@ -60,7 +60,9 @@ export default function PostList({ posts, category }: PropType) {
                   })}
                 </div>
                 <div className={styles.previewContent}>
-                  <span>{postInfo.previewContent}</span>
+                  <span className={styles.previewContentText}>
+                    {postInfo.previewContent}
+                  </span>
                 </div>
               </div>
             </Link>

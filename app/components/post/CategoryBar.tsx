@@ -20,7 +20,6 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
     setSelectedCategory(category);
   };
 
-  /** */
   useEffect(() => {
     if (pathname.includes("/post") && !selectedCategory) {
       setSelectedCategory("all");
@@ -36,6 +35,7 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
           href={`/post/all?page=1`}
           className={styles.categoryText}
           style={assignInlineVars({
+            marginTop: "0",
             [styles.categoryColor]:
               selectedCategory === "all"
                 ? vars.themeColor.buttonColor.activeColor
@@ -53,7 +53,7 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
           <li
             className={styles.category}
             key={category._id}
-            style={{ animationDelay: `${(idx + 1) * 0.15}s` }}
+            style={{ animationDelay: `${(idx + 1) * 0.1}s` }}
           >
             <Link
               href={`/post/${category.label}?page=1`}

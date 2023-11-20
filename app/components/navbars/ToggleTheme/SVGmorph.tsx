@@ -16,10 +16,10 @@ export default function SVGmorph({
   const path = useTransform(progress, [0, 1, 2], paths, {
     mixer: (from, to) => interpolate(from, to, { maxSegmentLegth: 5 }),
   });
-  const themeColor = theme === "dark" ? 0 : 1;
+  const themeColor = theme === "dark" ? 1 : 0;
   useEffect(() => {
     animate(progress, themeColor, {
-      duration: 0.3,
+      duration: 0.15,
       ease: "easeInOut",
     });
   }, [theme]);

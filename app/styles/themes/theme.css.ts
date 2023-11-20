@@ -14,6 +14,7 @@ const themeColor = createThemeContract({
     accentColor: null,
     subColor: null,
     accentSubColor: null,
+    middleAccentColor: null,
   },
   buttonColor: {
     notActiveColor: null,
@@ -24,6 +25,8 @@ const themeColor = createThemeContract({
     accentColor: null,
     navbarColor: null,
     textBoxColor: null,
+    glassGradientColorTop: null,
+    glassGradientColorBottom: null,
   },
   boxColor: {
     notHoverColor: null,
@@ -40,6 +43,7 @@ export const ligthTheme = createTheme(themeColor, {
     textColor: grey[300],
     subColor: white[500],
     accentSubColor: white[500],
+    middleAccentColor: grey[200],
     accentColor: "black",
   },
   buttonColor: {
@@ -50,7 +54,9 @@ export const ligthTheme = createTheme(themeColor, {
     bodyColor: white[100],
     accentColor: white[200],
     navbarColor: "rgba(" + white[100] + ", 0.8)",
-    textBoxColor: white[400],
+    glassGradientColorTop: `linear-gradient(to top, rgba(245,245,245,0) 0%, rgba(245,245,245,1) 100%)`,
+    glassGradientColorBottom: `linear-gradient(to top, rgba(245,245,245,1) 0%, rgba(245,245,245,0) 100%)`,
+    textBoxColor: white[300],
   },
   boxColor: {
     notHoverColor: white[200],
@@ -68,6 +74,7 @@ export const darkTheme = createTheme(themeColor, {
     subColor: grey[300],
     accentColor: "white",
     accentSubColor: grey[200],
+    middleAccentColor: white[200],
   },
   buttonColor: {
     notActiveColor: grey[100],
@@ -77,6 +84,8 @@ export const darkTheme = createTheme(themeColor, {
     bodyColor: grey[500],
     accentColor: grey[400],
     navbarColor: "rgba(" + grey[500] + ", 0.8)",
+    glassGradientColorTop: `linear-gradient(to top, rgba(16,16,16,0) 0%, rgba(16,16,16, 1) 100%)`,
+    glassGradientColorBottom: `linear-gradient(to top, rgba(16,16,16,1) 0%, rgba(16,16,16,0) 100%)`,
     textBoxColor: grey[300],
   },
   boxColor: {
@@ -89,4 +98,18 @@ export const darkTheme = createTheme(themeColor, {
   },
 });
 
-export const vars = { ...root, themeColor };
+import { keyframes } from "@vanilla-extract/css";
+
+export const blink = keyframes({
+  "0%": {
+    opacity: 0,
+  },
+  "50%": {
+    opacity: 0.7,
+  },
+  "100%": {
+    opacity: 0,
+  },
+});
+
+export const vars = { ...root, themeColor, blink };

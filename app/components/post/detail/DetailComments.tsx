@@ -39,7 +39,7 @@ export default function DetailComments({
                   {getRelativeTime(comment.createdAt!)}
                 </span>
               </div>
-              <p className={styles.commentText}>{comment.text}</p>
+              <p>{comment.text}</p>
             </div>
             {userEmail === comment.email && (
               <DeleteBtn

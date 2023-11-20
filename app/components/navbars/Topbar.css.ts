@@ -2,7 +2,7 @@ import { vars } from "@/app/styles/themes/theme.css";
 import { style } from "@vanilla-extract/css";
 
 export const topbar = style({
-  position: "sticky",
+  position: "fixed",
   top: "-1px",
   width: "100vw",
   height: "80px",
@@ -12,6 +12,11 @@ export const topbar = style({
   backdropFilter: "blur(15px)",
   backgroundColor: vars.themeColor.backgroundColor.navbarColor,
   zIndex: 1,
+  "@media": {
+    "(max-width: 640px)": {
+      height: 60,
+    },
+  },
 });
 
 export const topbarLogo = style({

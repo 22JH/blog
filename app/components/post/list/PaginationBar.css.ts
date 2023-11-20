@@ -6,7 +6,6 @@ export const paginationBarContainer = style({
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
-  marginBottom: 100,
 });
 
 export const numberContainer = style({

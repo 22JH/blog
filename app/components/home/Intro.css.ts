@@ -7,10 +7,11 @@ export const introContainer = style({
   alignContent: "center",
   justifyContent: "center",
   flexDirection: "column",
-  height: "calc(100dvh - 80px)",
+  height: "calc(100dvh - 80px - 70px)",
   "@media": {
     "(max-width: 640px)": {
-      height: "calc(100dvh - 80px - 68px)",
+      /** topbar, bottombar, footer */
+      height: "calc(100dvh - 60px - 60px - 70px)",
     },
   },
 });
@@ -18,8 +19,9 @@ export const introContainer = style({
 export const introFrame = style({
   display: "flex",
   flexDirection: "row",
+  gap: 15,
   "@media": {
-    "(max-width: 1000px)": {
+    "(max-width: 620px)": {
       flexDirection: "column-reverse",
     },
   },
@@ -30,14 +32,14 @@ export const introThreeModel = style({
   display: "flex",
   position: "relative",
   minWidth: 200,
-  minHeight: 0,
+  minHeight: 200,
   alignItems: "center",
   justifyContent: "center",
 });
 
 export const introAbout = style({
   flex: 1.5,
-  fontSize: 22,
+  fontSize: 20,
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -45,9 +47,14 @@ export const introAbout = style({
   height: "100%",
   "@media": {
     "(max-width: 640px)": {
+      fontSize: 18,
       justifyContent: "flex-start",
     },
   },
+});
+
+export const introDescription = style({
+  fontSize: 16,
 });
 
 export const socialFrame = style({
@@ -56,7 +63,7 @@ export const socialFrame = style({
   justifyContent: "flex-end",
   "@media": {
     "(max-width: 640px)": {
-      marginTop: 10,
+      marginTop: 20,
     },
   },
 });

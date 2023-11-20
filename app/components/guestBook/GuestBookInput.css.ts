@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 
 export const guestBookInputContainer = style({
   width: "45vw",
-  minWidth: "500px",
   position: "fixed",
   bottom: "40px",
   height: "fit-content",
@@ -12,7 +11,7 @@ export const guestBookInputContainer = style({
   alignItems: "center",
   "@media": {
     "(max-width: 640px)": {
-      bottom: "70px",
+      bottom: "80px",
       width: "90vw",
       minWidth: "100px",
     },
@@ -22,7 +21,6 @@ export const guestBookInputContainer = style({
 export const guestComment = style({
   flex: 1,
   backgroundColor: vars.themeColor.boxColor.notHoverColor,
-  backdropFilter: "blur(15px)",
   color: vars.themeColor.fontColor.textColor,
   border: vars.themeColor.borderColor.notHoverColor,
   borderWidth: 1,

@@ -5,8 +5,8 @@ import BottomBar from "../components/navbars/BottomBar";
 import Topbar from "../components/navbars/Topbar";
 import * as styles from "./RootLayout.css";
 import { darkTheme, ligthTheme } from "../styles/themes/theme.css";
-import ThemeButton from "../components/navbars/ToggleTheme/ThemeButton";
 import { cookies } from "next/headers";
+import Footer from "../components/navbars/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,13 +21,15 @@ export default function RootLayout({
 }) {
   const cookieStore = cookies();
   const theme = cookieStore.get("theme");
-  console.log(theme?.value);
   return (
     <html lang="ko-KR">
       <body className={theme?.value === "dark" ? darkTheme : ligthTheme}>
         <Topbar />
         <div className={styles.mainContentContainer}>
-          <main className={styles.mainContent}>{children}</main>
+          <main className={styles.mainContent}>
+            {children}
+            <Footer />
+          </main>
         </div>
         <BottomBar />
       </body>

@@ -1,3 +1,4 @@
+import { vars } from "@/app/styles/themes/theme.css";
 import { style, keyframes } from "@vanilla-extract/css";
 
 const gradientWave = keyframes({
@@ -19,5 +20,7 @@ export const loadingBox = style({
   zIndex: 3,
   opacity: 0,
   position: "absolute",
+  backgroundColor: vars.themeColor.backgroundColor.textBoxColor,
   animation: `${gradientWave} 2s ease infinite`,
+  borderRadius: 10,
 });

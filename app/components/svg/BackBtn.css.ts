@@ -20,8 +20,8 @@ export const backBtnContainer = style({
   animation: `${slideInFromLeft} 1s 0.2s cubic-bezier(0.145, 0.86, 0.43, 1) forwards`,
   backgroundColor: "transparent",
   "@media": {
-    "(max-width: 820px)": {
-      left: "calc(27.5vw - 140px)",
+    "(max-width: 1020px)": {
+      left: "calc(27.5vw - 180px)",
       top: "50%",
       transform: "translate(0, -50%)",
       zIndex: 3,
@@ -29,7 +29,7 @@ export const backBtnContainer = style({
     "(max-width: 640px)": {
       left: 0,
       top: 0,
-      marginTop: "20px",
+      marginTop: "10px",
       marginLeft: "4vw",
     },
   },

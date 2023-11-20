@@ -3,6 +3,7 @@ import { sun } from "../icon/sun";
 import { cookies } from "next/headers";
 import { toggleBtn } from "./ToggleBtn.css";
 import SVGmorph from "./SVGmorph";
+
 export default function ToggleBtn() {
   const theme = cookies().get("theme");
   const handleTheme = async () => {
@@ -17,8 +18,8 @@ export default function ToggleBtn() {
     <form action={handleTheme}>
       <button className={toggleBtn}>
         <svg
-          width="24"
-          height="24"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

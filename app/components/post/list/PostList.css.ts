@@ -13,7 +13,7 @@ const slideInFromLeft = keyframes({
 });
 
 export const categoryTitle = style({
-  fontWeight: 500,
+  // fontWeight: 500,
   textTransform: "uppercase",
   marginTop: 10,
   marginLeft: 10,
@@ -33,11 +33,13 @@ export const postContainer = style({
 export const postCategory = style({
   margin: 0,
   fontSize: 14,
+  height: "fit-content",
   color: vars.themeColor.fontColor.accentSubColor,
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
   borderRadius: 5,
   padding: "2px 5px",
-  fontWeight: 600,
+  // fontWeight: 600,
+  whiteSpace: "nowrap",
 });
 
 export const post = style({
@@ -46,7 +48,7 @@ export const post = style({
   display: "flex",
   flexDirection: "row",
   height: "fit-content",
-  padding: "20px 10px 35px 10px",
+  padding: "20px 10px 25px 10px",
   margin: "15px 0",
   borderBottomWidth: 1.5,
   borderBottomStyle: "solid",
@@ -70,8 +72,8 @@ export const thumbnail = style({
   position: "relative",
   borderRadius: "5px",
   overflow: "hidden",
-  width: "180px",
-  height: "180px",
+  width: "140px",
+  height: "140px",
   aspectRatio: "1/1",
   "@media": {
     "(max-width: 820px)": {
@@ -122,18 +124,31 @@ export const categoryFrame = style({
   flexDirection: "row",
   gap: 5,
   marginBottom: "15px",
+  overflow: "scroll",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
 });
 
 export const previewContent = style({
   height: "100px",
   width: "100%",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  fontWeight: 300,
+
   "@media": {
-    "(max-width: 802px)": {
-      maxHeight: 50,
+    "(max-width: 800px)": {
+      maxHeight: 60,
       fontSize: 14,
     },
   },
+});
+
+export const previewContentText = style({
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
+  wordBreak: "break-word",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 3,
+  fontSize: 14,
+  lineHeight: "22px",
 });

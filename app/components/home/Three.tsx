@@ -11,14 +11,14 @@ import * as styles from "./Three.css";
 export function Model({ showMaterial }: { showMaterial: boolean }) {
   const { nodes, materials }: any = useGLTF("/facemodel/face1.gltf");
   return (
-    <group dispose={null} onBeforeRender={() => console.log(1)}>
+    <group dispose={null}>
       {showMaterial ? (
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.face6.geometry}
           material={materials.textured_0}
-          scale={25}
+          scale={28}
           position={[1, -3, 0]}
           rotation={[1.56, 0, 0]}
         />
@@ -28,7 +28,7 @@ export function Model({ showMaterial }: { showMaterial: boolean }) {
           receiveShadow
           geometry={nodes.face6.geometry}
           material={materials.textured_0}
-          scale={25}
+          scale={28}
           position={[1, -3, 0]}
           rotation={[1.56, 0, 0]}
         >
@@ -51,37 +51,40 @@ export default function Three() {
   };
   return (
     <div className={styles.canvasFrame}>
-      {progress === 100 && (
-        <ToggleSwitch handleShowMaterial={handleShowMaterial} />
-      )}
-      <Canvas
-        camera={{
-          fov: 40,
-          near: 10,
-          far: 1000,
-          position: [-30, 5.5, 5],
-        }}
-      >
-        <Model showMaterial={showMaterial} />
-        <OrbitControls
-          onEnd={(e: any) => {
-            e?.target.setAzimuthalAngle(-1.4);
-            e?.target.setPolarAngle(1.4);
-          }}
-          minAzimuthAngle={-Math.PI / 1.25}
-          maxAzimuthAngle={-0.5}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI - Math.PI / 2}
-          enableZoom={false}
-          enablePan={false}
-        />
+      {progress < 100 ? (
+        <ThreeFallback />
+      ) : (
+        <>
+          <ToggleSwitch handleShowMaterial={handleShowMaterial} />
+          <Canvas
+            camera={{
+              fov: 40,
+              near: 10,
+              far: 1000,
+              position: [-30, 5.5, 5],
+            }}
+          >
+            <Model showMaterial={showMaterial} />
+            <OrbitControls
+              onEnd={(e: any) => {
+                e?.target.setAzimuthalAngle(-1.4);
+                e?.target.setPolarAngle(1.4);
+              }}
+              minAzimuthAngle={-Math.PI / 1.25}
+              maxAzimuthAngle={-0.5}
+              minPolarAngle={Math.PI / 3}
+              maxPolarAngle={Math.PI - Math.PI / 2}
+              enableZoom={false}
+              enablePan={false}
+            />
 
-        <pointLight color={color} intensity={intensity} />
-        <directionalLight color={color} intensity={intensity} />
-        <ambientLight color={color} intensity={intensity} />
-        <Environment preset="dawn" />
-      </Canvas>
-      {progress < 100 && <ThreeFallback />}
+            <pointLight color={color} intensity={intensity} />
+            <directionalLight color={color} intensity={intensity} />
+            <ambientLight color={color} intensity={intensity} />
+            <Environment preset="dawn" />
+          </Canvas>
+        </>
+      )}
     </div>
   );
 }

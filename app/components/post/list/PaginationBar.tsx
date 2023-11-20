@@ -33,7 +33,6 @@ export default function PaginationBar({
   };
 
   const handleNextBtn = () => {
-    console.log(index, totalPage);
     if (index * 5 >= totalPage) return;
     setIndex((prev: number) => prev + 5);
   };
