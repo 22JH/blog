@@ -29,7 +29,7 @@
   - 컴파일 단계에서 css 빌드를 할 수 있는 Vanila Extract 도입
   - 기존의 css in js 처럼 런타임에서 style을 생성 하며 성능 저하를 일으키는 문제를 방지
   - 타입 추론이 가능해지며 하드 코딩이 줄어듦
-  - dark/light 테마 구현(예정)
+  - global theme 구성 후 dark/light 동적으로 구현
  
 ## 배포
 - 진행중
