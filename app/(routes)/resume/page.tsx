@@ -1,6 +1,12 @@
 import Link from "next/link";
 import * as styles from "./resume.css";
 import LinkBtn from "@/app/components/svg/resume/LinkBtn";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "주니어 프론트엔드 개발자",
+  description: "주니어 프론트엔드 개발자 이주형 입니다.",
+};
 
 export default function Resume() {
   return (

@@ -10,6 +10,8 @@ import DetailComments from "@/app/components/post/detail/DetailComments";
 import { getServerSession } from "next-auth";
 import DetailTitleAndDate from "@/app/components/post/detail/DetailTitleAndDate";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { Metadata } from "next";
+import { changeKrUrl } from "@/app/lib/changeKrUrl";
 
 const DetailViewer = dynamic(
   () => import("../../../../components/post/detail/DetailViewer"),
@@ -24,6 +26,18 @@ interface PropType {
   };
 }
 
+export const generateMetadata = async ({
+  params,
+}: PropType): Promise<Metadata> => {
+  return {
+    title: decodeURI(params.id),
+  };
+};
+//   props: PropType
+// ): Promise<Metadata> =>{
+//   title: "J123123",
+//   description: "이주형의 개발 블로그",
+// };
 export default async function Detail({ params }: PropType) {
   const { detailPost, previousPostTitle, nextPostTitle } = await getPost(
     params.id
