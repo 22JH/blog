@@ -8,6 +8,7 @@ import Image from "next/image";
 import SendBtn from "../../svg/SendBtn";
 import * as styles from "./DetailCommentInput.css";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { vars } from "@/app/styles/themes/theme.css";
 
 interface PropType {
   postId: string;
@@ -51,7 +52,7 @@ export default function DetailCommentInput({ postId, userInfo }: PropType) {
           className={styles.commentThumbnail}
           style={assignInlineVars({
             [styles.thumbnailBorder]: !userInfo
-              ? "1px solid rgb(80, 80, 80)"
+              ? vars.themeColor.borderColor.notHoverColor
               : "none",
           })}
         >

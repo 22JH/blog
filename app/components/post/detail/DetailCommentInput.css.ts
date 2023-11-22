@@ -27,7 +27,9 @@ export const commentThumbnail = style({
   backgroundColor: vars.themeColor.backgroundColor.bodyColor,
   width: "45px",
   height: "45px",
-  border: thumbnailBorder,
+  borderColor: thumbnailBorder,
+  borderWidth: 1,
+  borderStyle: "solid",
 });
 
 export const comment = style({
