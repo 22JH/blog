@@ -16,6 +16,7 @@ const gradientWave = keyframes({
 export const loadingBox = style({
   width: "100%",
   height: "100%",
+  minWidth: 300,
   top: 0,
   zIndex: 3,
   opacity: 0,

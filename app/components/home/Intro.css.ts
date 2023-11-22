@@ -19,7 +19,7 @@ export const introContainer = style({
 export const introFrame = style({
   display: "flex",
   flexDirection: "row",
-  // gap: 15,
+  gap: 15,
   "@media": {
     "(max-width: 620px)": {
       flexDirection: "column-reverse",
@@ -31,8 +31,7 @@ export const introThreeModel = style({
   // flex: 1,
   display: "flex",
   position: "relative",
-  minWidth: 200,
-  // minHeight: 200,
+  minWidth: "300px",
   alignItems: "center",
   justifyContent: "center",
 });
