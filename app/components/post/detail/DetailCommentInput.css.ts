@@ -24,6 +24,7 @@ export const commentThumbnail = style({
   overflow: "hidden",
   margin: "5px 10px 5px 0",
   position: "relative",
+  backgroundColor: vars.themeColor.backgroundColor.bodyColor,
   width: "45px",
   height: "45px",
   border: thumbnailBorder,
@@ -31,6 +32,9 @@ export const commentThumbnail = style({
 
 export const comment = style({
   flex: 1,
+  padding: 0,
+  borderRadius: 0,
+  width: 0,
   backgroundColor: "transparent",
   height: "fit-content",
   color: vars.themeColor.fontColor.textColor,

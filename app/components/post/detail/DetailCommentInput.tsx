@@ -53,7 +53,7 @@ export default function DetailCommentInput({ postId, userInfo }: PropType) {
           className={styles.commentThumbnail}
           style={assignInlineVars({
             [styles.thumbnailBorder]: !userInfo
-              ? "0.5px solid rgb(80, 80, 80)"
+              ? "1px solid rgb(80, 80, 80)"
               : "none",
           })}
         >

@@ -52,7 +52,7 @@ export const nameAndDate = style({
 export const guestBookText = style({
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
   borderRadius: 15,
-  width: "20vw",
+  width: "45vw",
   height: 30,
   padding: "10px",
   "@media": {

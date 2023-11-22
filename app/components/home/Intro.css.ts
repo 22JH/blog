@@ -19,7 +19,7 @@ export const introContainer = style({
 export const introFrame = style({
   display: "flex",
   flexDirection: "row",
-  gap: 15,
+  // gap: 15,
   "@media": {
     "(max-width: 620px)": {
       flexDirection: "column-reverse",
@@ -28,27 +28,28 @@ export const introFrame = style({
 });
 
 export const introThreeModel = style({
-  flex: 1,
+  // flex: 1,
   display: "flex",
   position: "relative",
   minWidth: 200,
-  minHeight: 200,
+  // minHeight: 200,
   alignItems: "center",
   justifyContent: "center",
 });
 
 export const introAbout = style({
-  flex: 1.5,
+  flex: 1,
   fontSize: 20,
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   rowGap: 10,
-  height: "100%",
+  height: "fit-content",
   "@media": {
     "(max-width: 640px)": {
       fontSize: 18,
       justifyContent: "flex-start",
+      rowGap: 5,
     },
   },
 });
