@@ -5,6 +5,7 @@ import Logo from "../svg/navbar/Logo";
 import ToggleBtn from "./ToggleTheme/ToggleBtn";
 
 export default function Topbar() {
+  console.log("topbar ------------------------------------------------");
   return (
     <nav className={styles.topbar}>
       <Link href="/" className={styles.topbarLogo}>

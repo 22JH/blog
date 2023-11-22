@@ -2,6 +2,8 @@ import { getPostByCategory } from "@/app/lib/actions/post.actions";
 import PostList from "@/app/components/post/list/PostList";
 import PaginationBar from "@/app/components/post/list/PaginationBar";
 import { Metadata } from "next";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 interface PropType {
   params: {
@@ -29,7 +31,9 @@ export default async function Post({ params, searchParams }: PropType) {
   const decodedCategory = decodeURI(params.category);
   return (
     <>
-      <PostList posts={posts} category={decodedCategory} />
+      <Suspense fallback={<Loading />}>
+        <PostList posts={posts} category={decodedCategory} />
+      </Suspense>
       <PaginationBar
         page={page}
         totalPage={totalPage}
