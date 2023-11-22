@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import * as styles from "./BackBtn.css";

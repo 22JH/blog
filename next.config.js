@@ -33,6 +33,7 @@ const nextConfig = {
   experimental: {
     webpackBuildWorker: true,
   },
+  future: { webpack5: true },
 };
 
 module.exports = withVanillaExtract(nextConfig);

@@ -1,8 +1,5 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 
-import { css } from "@emotion/react";
 import SendBtn from "../svg/SendBtn";
 import { useEffect, useState } from "react";
 import { createGuestBook } from "@/app/lib/actions/guestBook.action";

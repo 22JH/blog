@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { detailUpdateBtn, isAdmin } from "./DetailUpdateBtn.css";

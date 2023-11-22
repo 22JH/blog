@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../globals.css";
 import BottomBar from "../components/navbars/BottomBar";
 import Topbar from "../components/navbars/Topbar";
@@ -11,6 +10,7 @@ import Footer from "../components/navbars/Footer";
 export const metadata: Metadata = {
   title: "Joo",
   description: "이주형의 개발 블로그",
+  keywords: ["개발 블로그", "프론트엔드", "프론트엔드 블로그"],
 };
 
 export default function RootLayout({

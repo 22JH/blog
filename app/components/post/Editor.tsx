@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-/** 에디터를 위한 라이브러리들 */
 // @ts-ignore
 import { Editor as ToastEditor } from "@toast-ui/react-editor";
 // @ts-ignore

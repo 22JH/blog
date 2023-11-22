@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { uploadImage } from "@/app/lib/actions/image.action";
 import { createPost, updatePost } from "@/app/lib/actions/post.actions";
 import Image from "next/image";

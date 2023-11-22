@@ -13,15 +13,19 @@ export async function createComment({
   postId,
   userImage,
 }: CommentType) {
-  const res = await Comment.create({
-    text,
-    email,
-    name,
-    postId,
-    userImage,
-  });
-  await Post.updateOne({ _id: postId }, { $push: { comments: res._id } });
-  revalidatePath("/post/detail/[id]", "page");
+  try {
+    const res = await Comment.create({
+      text,
+      email,
+      name,
+      postId,
+      userImage,
+    });
+    await Post.updateOne({ _id: postId }, { $push: { comments: res._id } });
+    revalidatePath("/post/detail/[id]", "page");
+  } catch (err) {
+    throw new Error(`댓글 생성 실패 : ${err}`);
+  }
 }
 
 interface DeleteCommentType {
@@ -40,6 +44,6 @@ export async function deleteComment({ postId, commentId }: DeleteCommentType) {
     await Comment.deleteOne({ _id: commentId });
     revalidatePath("/post/detail/[id]", "page");
   } catch (err) {
-    throw new Error(`Failed To delete comment ${err}`);
+    throw new Error(`댓글 삭제 실패 ${err}`);
   }
 }

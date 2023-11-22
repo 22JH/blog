@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-
 "use client";
 import { Viewer } from "@toast-ui/react-editor";
 // @ts-ignore

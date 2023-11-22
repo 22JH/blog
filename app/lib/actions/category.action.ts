@@ -13,7 +13,7 @@ export async function getCategory(): Promise<SelectOption[]> {
     });
     return category;
   } catch (err: any) {
-    throw new Error(`Failed to get categories : ${err.message}`);
+    throw new Error(`카테고리 가져오기 실패 : ${err.message}`);
   }
 }
 
@@ -34,7 +34,7 @@ export async function createCategory(
     }
     return categoryIds;
   } catch (err: any) {
-    throw new Error(`Failed to create categories : ${err.message}`);
+    throw new Error(`카테고리 생성 실패 : ${err.message}`);
   }
 }
 
@@ -55,6 +55,6 @@ export async function deleteCategory(
     }
     return categoryIds;
   } catch (err: any) {
-    throw new Error(`Failed to create categories : ${err.message}`);
+    throw new Error(`카테고리 삭제 실패 : ${err.message}`);
   }
 }
