@@ -56,7 +56,6 @@ export const guestBookText = style({
   maxWidth: "35vw",
   padding: "10px",
   fontSize: "16px",
-  // color: "rgb(200, 200, 200)",
   "@media": {
     "(max-width: 640px)": {
       maxWidth: "70vw",

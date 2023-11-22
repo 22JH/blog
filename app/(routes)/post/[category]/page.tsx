@@ -10,7 +10,7 @@ export default async function Post({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const page = Number(searchParams.page as string);
-  const { posts, hasNextPage, totalPage } = await getPostByCategory(
+  const { posts, totalPage } = await getPostByCategory(
     params.category,
     Number(page)
   );

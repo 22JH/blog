@@ -50,5 +50,8 @@ export const commentThumbnail = style({
   width: "45px",
   marginRight: "10px",
   height: "45px",
+  borderColor: vars.themeColor.borderColor.notHoverColor,
+  borderWidth: 1,
+  borderStyle: "solid",
   backdropFilter: "blur(15px)",
 });

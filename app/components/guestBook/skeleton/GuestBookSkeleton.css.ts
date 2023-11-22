@@ -7,6 +7,7 @@ export const guestBooks = style({
   marginBottom: "120px",
   paddingBottom: "10px",
   borderBottom: vars.themeColor.borderColor.notHoverColor,
+  animation: `${vars.blink} 1s ease infinite`,
   borderBottomWidth: 1,
   borderBottomStyle: "solid",
   "::-webkit-scrollbar": {
@@ -31,6 +32,7 @@ export const gusetBookThumbnail = style({
   borderRadius: "50%",
   overflow: "hidden",
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  animation: `${vars.blink} 1s ease infinite`,
 });
 
 export const guestBookInfo = style({
@@ -44,20 +46,16 @@ export const nameAndDate = style({
   alignItems: "flex-end",
   marginBottom: "5px",
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  animation: `${vars.blink} 1s ease infinite`,
   height: 16,
   width: 50,
   borderRadius: 15,
 });
 
 export const guestBookText = style({
+  animation: `${vars.blink} 1s ease infinite`,
   backgroundColor: vars.themeColor.backgroundColor.accentColor,
   borderRadius: 15,
-  width: "45vw",
   height: 30,
-  padding: "10px",
-  "@media": {
-    "(max-width: 640px)": {
-      maxWidth: "70vw",
-    },
-  },
+  padding: 10,
 });
