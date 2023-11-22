@@ -1,3 +1,5 @@
+"use client";
+
 import { PostType } from "@/app/types/post.type";
 import * as styles from "./PostList.css";
 import Image from "next/image";
@@ -20,7 +22,6 @@ export default function PostList({ posts, category }: PropType) {
           return (
             <Link
               href={{ pathname: `/post/detail/${changeKrUrl(postInfo.title)}` }}
-              // shallow={true}
               style={{ color: "white" }}
               key={postInfo._id}
               className={styles.post}
