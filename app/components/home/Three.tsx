@@ -19,7 +19,7 @@ export function Model({ showMaterial }: { showMaterial: boolean }) {
           geometry={nodes.face6.geometry}
           material={materials.textured_0}
           scale={28}
-          position={[1, -3, 0]}
+          position={[1, -5.5, 0]}
           rotation={[1.56, 0, 0]}
         />
       ) : (
@@ -29,7 +29,7 @@ export function Model({ showMaterial }: { showMaterial: boolean }) {
           geometry={nodes.face6.geometry}
           material={materials.textured_0}
           scale={28}
-          position={[1, -3, 0]}
+          position={[1, -5.5, 0]}
           rotation={[1.56, 0, 0]}
         >
           <meshStandardMaterial color="rgb(200,200,200)" />
