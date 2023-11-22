@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ko-KR">
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body className={theme?.value === "dark" ? darkTheme : ligthTheme}>
+      <body className={theme?.value === "light" ? ligthTheme : darkTheme}>
         <Topbar />
         <div className={styles.mainContentContainer}>
           <main className={styles.mainContent}>

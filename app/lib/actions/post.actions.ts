@@ -29,7 +29,7 @@ export async function createPost({
       thumbnail,
     });
   } catch (err: any) {
-    throw new Error(`Failed to create post : ${err.message}`);
+    throw new Error(`글 생성 실패 : ${err.message}`);
   }
 }
 
@@ -57,7 +57,7 @@ export async function getAllPost(
     const totalPage = Math.ceil(totalPost / pageSize);
     return { posts, hasNextPage, totalPost, totalPage };
   } catch (err: any) {
-    throw new Error(`Failed to get all posts : ${err.message}`);
+    throw new Error(`글 목록 가져오기 실패 : ${err.message}`);
   }
 }
 
@@ -96,7 +96,7 @@ export async function getPostByCategory(
     }
   } catch (err) {
     // redirect("/post/all");
-    throw new Error(`Failed to get post by category${err}`);
+    throw new Error(`카테고리 글 목록 가져오기 실패 : ${err}`);
   }
 }
 
@@ -128,7 +128,7 @@ export async function getPost(href: string): Promise<PostWithNeighborsType> {
       nextPostTitle: nextPost[0] ? nextPost[0].title : null,
     };
   } catch (err: any) {
-    throw new Error(`Failed to get detail post : ${err.message}`);
+    throw new Error(`글 내용 가져오기 실패 : ${err.message}`);
   }
 }
 
@@ -176,6 +176,6 @@ export async function updatePost({
     );
     return newUrl;
   } catch (err: any) {
-    throw new Error(`Failed to update Post : ${err.message}`);
+    throw new Error(`글 수정 실패 : ${err.message}`);
   }
 }

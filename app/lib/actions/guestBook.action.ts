@@ -24,8 +24,8 @@ export async function createGuestBook({
 }
 
 export async function getGusetBook(): Promise<GusetBookType[]> {
-  connectToDB();
   try {
+    connectToDB();
     const guestBook = await GuestBook.find();
     return guestBook;
   } catch (err) {
