@@ -30,11 +30,13 @@ export default function PostList({ posts, category }: PropType) {
                   <Image
                     src={postInfo?.thumbnail}
                     alt="thumbnail"
-                    sizes="(max-width: 900px) 50vw, 100vw"
+                    sizes="(max-width: 900px) 400px, 200px"
                     fill={true}
                     style={{ objectFit: "cover" }}
                     priority={true}
-                    blurDataURL={postInfo?.thumbnail}
+                    placeholder="blur"
+                    blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mMUqAcAAKUAkcwegSwAAAAASUVORK5CYII"
+                    quality={20}
                   />
                 ) : (
                   <Image
