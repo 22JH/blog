@@ -1,5 +1,3 @@
-"use client";
-
 import { PostType } from "@/app/types/post.type";
 import * as styles from "./PostList.css";
 import Image from "next/image";

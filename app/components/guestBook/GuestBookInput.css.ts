@@ -29,6 +29,8 @@ export const guestComment = style({
   height: "50px",
   padding: "0px 20px 0px 15px",
   resize: "none",
+  fontSize: 16,
+  width: 0,
   ":focus": {
     outline: "none",
   },

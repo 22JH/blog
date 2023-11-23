@@ -35,7 +35,7 @@ export async function createPost({
 
 export async function getAllPost(
   pageNumber = 1,
-  pageSize = 3
+  pageSize = 5
 ): Promise<{
   posts: PostType[];
   hasNextPage: boolean;
@@ -64,9 +64,10 @@ export async function getAllPost(
 export async function getPostByCategory(
   category: string,
   pageNumber = 1,
-  pageSize = 3
+  pageSize = 5
 ) {
   const decodedCategory = decodeURI(category);
+
   try {
     if (decodedCategory === "all") {
       const { posts, hasNextPage, totalPage } = await getAllPost(
@@ -95,7 +96,6 @@ export async function getPostByCategory(
       return { posts, hasNextPage, totalPost, totalPage };
     }
   } catch (err) {
-    // redirect("/post/all");
     throw new Error(`카테고리 글 목록 가져오기 실패 : ${err}`);
   }
 }
