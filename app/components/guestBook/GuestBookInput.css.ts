@@ -9,6 +9,7 @@ export const guestBookInputContainer = style({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
+  minWidth: "576px",
   "@media": {
     "(max-width: 640px)": {
       bottom: "80px",
