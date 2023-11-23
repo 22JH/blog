@@ -1,4 +1,3 @@
-import { getPostByCategory } from "@/app/lib/actions/post.actions";
 import Category from "@/app/lib/models/category.model";
 import Post from "@/app/lib/models/post.model";
 import { connectToDB } from "@/app/lib/mongoose";
@@ -47,9 +46,8 @@ export async function GET(
       const totalPost = await Post.countDocuments({
         categories: getCategory._id,
       });
-      const hasNextPage = totalPost > skipAmount + posts.length;
       const totalPage = Math.ceil(totalPost / pageSize);
-      return { posts, totalPost, totalPage };
+      return NextResponse.json({ posts, totalPost, totalPage });
     }
   } catch (err) {
     throw new Error(`카테고리 글 목록 가져오기 실패 : ${err}`);
