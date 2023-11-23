@@ -10,11 +10,13 @@ import { getServerSession } from "next-auth";
 import DetailTitleAndDate from "@/app/components/post/detail/DetailTitleAndDate";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { Metadata } from "next";
+import PostDetailSkeleton from "@/app/components/post/detail/skeleton/PostDetailSkeleton";
 
 const DetailViewer = dynamic(
   () => import("../../../../components/post/detail/DetailViewer"),
   {
     ssr: false,
+    loading: () => <PostDetailSkeleton />,
   }
 );
 

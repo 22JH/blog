@@ -8,7 +8,7 @@ export default function ToggleBtn() {
   const theme = cookies().get("theme");
   const handleTheme = async () => {
     "use server";
-    if (theme?.value === "dark") {
+    if (theme?.value === "dark" || !theme?.value) {
       cookies().set("theme", "light");
     } else {
       cookies().set("theme", "dark");

@@ -1,4 +1,3 @@
-import { getPostByCategory } from "@/app/lib/actions/post.actions";
 import PostList from "@/app/components/post/list/PostList";
 import PaginationBar from "@/app/components/post/list/PaginationBar";
 import { Metadata } from "next";
@@ -37,7 +36,6 @@ export default async function Post({ params, searchParams }: PropType) {
 
   const data = await res.json();
   const posts = data.posts;
-  console.log(posts.length, "02-032-30-20340-20-3402-304");
   const totalPage = data.totalPage;
 
   return (
