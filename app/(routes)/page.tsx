@@ -1,4 +1,3 @@
-import { assignInlineVars } from "@vanilla-extract/dynamic";
 import Intro from "../components/home/Intro";
 
 export default async function Home() {

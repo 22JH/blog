@@ -25,14 +25,21 @@ export default async function Post({ params, searchParams }: PropType) {
   //   params.category,
   //   Number(page)
   // );
+  const decodedCategory = decodeURI(params.category);
+  // const { posts, totalPage } = await getPostByCategory(
+  //   params.category,
+  //   Number(page)
+  // );
   const res = await fetch(
-    `http://localhost:3000/api/post/${params.category}?page=${page}`
+    `http://localhost:3000/api/post/${params.category}?page=${page}`,
+    { cache: "no-store" }
   );
+
   const data = await res.json();
   const posts = data.posts;
   console.log(posts.length, "02-032-30-20340-20-3402-304");
   const totalPage = data.totalPage;
-  const decodedCategory = decodeURI(params.category);
+
   return (
     <>
       <PostList posts={posts} category={decodedCategory} />

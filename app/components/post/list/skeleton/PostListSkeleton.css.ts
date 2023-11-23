@@ -40,7 +40,7 @@ export const post = style({
   padding: "20px 10px 25px 10px",
   margin: "15px 0",
   "@media": {
-    "(max-width: 802px)": {
+    "(max-width: 820px)": {
       flexDirection: "column",
       paddingBottom: "30px",
     },
@@ -133,7 +133,7 @@ export const previewContent = style({
   animation: `${vars.blink} 1s ease infinite`,
   opacity: 0,
   "@media": {
-    "(max-width: 802px)": {
+    "(max-width: 820px)": {
       maxHeight: 50,
     },
   },
