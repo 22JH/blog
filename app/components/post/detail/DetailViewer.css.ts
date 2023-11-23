@@ -55,15 +55,15 @@ export const detailNeighborPostText = style({
 export const customViewer = style({});
 
 globalStyle(`${customViewer} > *`, {
-  color: vars.themeColor.fontColor.textColor,
+  color: vars.themeColor.fontColor.textColor + "!important",
 });
 globalStyle(`${customViewer} pre`, {
-  backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  backgroundColor: vars.themeColor.backgroundColor.accentColor + "!important",
 });
 
 globalStyle(`${customViewer} p`, {
   fontSize: 16,
-  color: vars.themeColor.fontColor.textColor,
+  color: vars.themeColor.fontColor.textColor + "!important",
   marginTop: 5,
 });
 
@@ -72,27 +72,27 @@ globalStyle(`${customViewer} .operator`, {
 });
 
 globalStyle(`${customViewer} code`, {
-  backgroundColor: vars.themeColor.backgroundColor.accentColor,
+  backgroundColor: vars.themeColor.backgroundColor.accentColor + "!important",
   color: vars.themeColor.borderColor.hoverColor + "!important",
 });
 globalStyle(`${customViewer} h1`, {
-  color: vars.themeColor.fontColor.accentColor,
+  color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
 });
 globalStyle(`${customViewer} h2`, {
-  color: vars.themeColor.fontColor.accentColor,
+  color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
 });
 globalStyle(`${customViewer} h3`, {
-  color: vars.themeColor.fontColor.accentColor,
+  color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
 });
 globalStyle(`${customViewer} h4`, {
-  color: vars.themeColor.fontColor.accentColor,
+  color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
 });
 globalStyle(`${customViewer} h5`, {
-  color: vars.themeColor.fontColor.accentColor,
+  color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
 });
 globalStyle(`${customViewer} ul`, {
