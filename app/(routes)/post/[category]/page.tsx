@@ -26,7 +26,7 @@ export default async function Post({ params, searchParams }: PropType) {
   //   Number(page)
   // );
   const res = await fetch(
-    `http://localhost:3000/api/post/${params.category}?page=${page}`
+    `https://joo-dev.com/api/post/${params.category}?page=${page}`
   );
   const data = await res.json();
   const posts = data.posts;
