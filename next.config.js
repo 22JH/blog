@@ -2,13 +2,15 @@
 
 const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin");
 const withVanillaExtract = createVanillaExtractPlugin();
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const nextConfig = {
   images: {
     domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com"],
   },
   transpilePackages: ["three"],
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
@@ -27,13 +29,23 @@ const nextConfig = {
       }
     );
 
+    if (process.env.ANALYZE) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: "server",
+          analyzerPort: isServer ? 8888 : 8889,
+          openAnalyzer: true,
+        })
+      );
+    }
+
     return config;
   },
   reactStrictMode: false,
   experimental: {
     webpackBuildWorker: true,
   },
-  future: { webpack5: true },
+  // future: { webpack5: true },
 };
 
 module.exports = withVanillaExtract(nextConfig);

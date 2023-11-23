@@ -20,6 +20,7 @@ export const generateMetadata = async ({
 
 export default async function Post({ params, searchParams }: PropType) {
   const page = Number(searchParams.page as string);
+  console.log("------------------------------------------------");
   // const { posts, totalPage } = await getPostByCategory(
   //   params.category,
   //   Number(page)
@@ -29,13 +30,23 @@ export default async function Post({ params, searchParams }: PropType) {
   //   params.category,
   //   Number(page)
   // );
+  const startTime = Date.now();
+
   const res = await fetch(
     `https://www.joo-dev.com/api/post/${params.category}?page=${page}`,
     { cache: "no-store" }
   );
+  const endTime = Date.now();
+  const fetchTime = endTime - startTime;
+
+  console.log(
+    `Fetch time: ${fetchTime}ms`,
+    "------------------------------------------"
+  );
 
   const data = await res.json();
   const posts = data.posts;
+
   const totalPage = data.totalPage;
 
   return (
