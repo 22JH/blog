@@ -58,7 +58,7 @@ export const post = style({
     transition: "0.3s all",
   },
   "@media": {
-    "(max-width: 802px)": {
+    "(max-width: 820px)": {
       flexDirection: "column",
       paddingBottom: "30px",
     },
