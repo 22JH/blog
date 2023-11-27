@@ -14,20 +14,7 @@ interface PropType {
 }
 
 export default function CategoryBar({ categories, totalPost }: PropType) {
-  const { selectedCategory, setSelectedCategory } = pageStore();
   const pathname = usePathname();
-  const handleSelectCategory = (category: string) => {
-    setSelectedCategory(category);
-  };
-
-  useEffect(() => {
-    if (pathname.includes("/post") && !selectedCategory) {
-      setSelectedCategory("all");
-    }
-    return () => {
-      setSelectedCategory("all");
-    };
-  }, []);
   return (
     <ul className={styles.categories}>
       <li className={styles.category}>
@@ -36,19 +23,16 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
           className={styles.categoryText}
           style={assignInlineVars({
             marginTop: "0",
-            [styles.categoryColor]:
-              selectedCategory === "all"
-                ? vars.themeColor.buttonColor.activeColor
-                : vars.themeColor.buttonColor.notActiveColor,
+            [styles.categoryColor]: pathname.includes("/all")
+              ? vars.themeColor.buttonColor.activeColor
+              : vars.themeColor.buttonColor.notActiveColor,
           })}
-          onClick={() => handleSelectCategory("all")}
           key="all"
         >
           {`All (${totalPost})`}
         </Link>
       </li>
       {categories?.map((category, idx) => {
-        const isActive = selectedCategory === category.label;
         return (
           <li
             className={styles.category}
@@ -59,11 +43,10 @@ export default function CategoryBar({ categories, totalPost }: PropType) {
               href={`/post/${category.label}?page=1`}
               className={styles.categoryText}
               style={assignInlineVars({
-                [styles.categoryColor]: isActive
+                [styles.categoryColor]: pathname.includes(category.label)
                   ? vars.themeColor.buttonColor.activeColor
                   : vars.themeColor.buttonColor.notActiveColor,
               })}
-              onClick={() => handleSelectCategory(category.label)}
             >{`${category.label} (${category.count})`}</Link>
           </li>
         );
