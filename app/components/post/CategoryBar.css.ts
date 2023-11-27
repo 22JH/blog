@@ -1,4 +1,3 @@
-import { vars } from "@/app/styles/themes/theme.css";
 import { createVar, keyframes, style } from "@vanilla-extract/css";
 
 const slideInFromLeft = keyframes({

@@ -24,7 +24,7 @@ export default function ToggleBtn() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* <SVGmorph paths={[sun, moon, sun]} theme={theme?.value || "dark"} /> */}
+          <SVGmorph paths={[sun, moon, sun]} theme={theme?.value || "dark"} />
         </svg>
       </button>
     </form>
