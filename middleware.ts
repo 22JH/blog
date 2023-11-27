@@ -8,6 +8,8 @@ export default withAuth(
     if (user === undefined || user?.user.role !== "admin") {
       return NextResponse.redirect(new URL("/", req.url));
     }
+    console.log(req);
+    console.log("--------------------------------------------");
   }
   // {
   //   callbacks: {

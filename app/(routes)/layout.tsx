@@ -6,7 +6,6 @@ import * as styles from "./RootLayout.css";
 import { darkTheme, ligthTheme } from "../styles/themes/theme.css";
 import { cookies } from "next/headers";
 import Footer from "../components/navbars/Footer";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Joo",
