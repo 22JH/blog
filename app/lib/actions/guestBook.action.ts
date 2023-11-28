@@ -26,7 +26,7 @@ export async function createGuestBook({
 export async function getGusetBook(): Promise<GusetBookType[]> {
   try {
     connectToDB();
-    const guestBook = await GuestBook.find();
+    const guestBook = (await GuestBook.find().lean()) as GusetBookType[];
     return guestBook;
   } catch (err) {
     throw new Error(`Failed to get guset book ${err}`);

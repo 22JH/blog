@@ -45,14 +45,16 @@ export async function getAllPost(
   try {
     connectToDB();
     const skipAmount = (pageNumber - 1) * pageSize;
-    const postQuery = Post.find()
-      .populate("categories")
-      .sort({ createdAt: "desc" })
+    const posts = Post.find(
+      {},
+      { title: 1, createdAt: 1, categories: 1, previewContent: 1 }
+    )
+      .populate("categories", { label: 1 })
       .skip(skipAmount)
       .limit(pageSize)
-      .lean();
-    const posts = (await postQuery.exec()) as PostType[];
-    const totalPost = await Post.countDocuments();
+      .lean()
+      .exec() as unknown as PostType[];
+    const totalPost = await Post.countDocuments().lean();
     const hasNextPage = totalPost > skipAmount + posts.length;
     const totalPage = Math.ceil(totalPost / pageSize);
     return { posts, hasNextPage, totalPost, totalPage };
@@ -81,16 +83,18 @@ export async function getPostByCategory(
       const getCategory = await Category.findOne({
         label: decodedCategory,
       }).exec();
-      const posts = (await Post.find({ categories: getCategory._id })
-        .populate("categories")
-        .sort({ createdAt: "desc" })
+      const posts = (await Post.find(
+        { categories: getCategory._id },
+        { title: 1, createdAt: 1, categories: 1, previewContent: 1 }
+      )
+        .populate("categories", { label: 1 })
         .skip(skipAmount)
         .limit(pageSize)
         .lean()) as PostType[];
 
       const totalPost = await Post.countDocuments({
         categories: getCategory._id,
-      });
+      }).lean();
       const hasNextPage = totalPost > skipAmount + posts.length;
       const totalPage = Math.ceil(totalPost / pageSize);
       return { posts, hasNextPage, totalPost, totalPage };
@@ -110,17 +114,25 @@ export async function getPost(href: string): Promise<PostWithNeighborsType> {
   try {
     connectToDB();
     const url = decodeURI(href);
-    const post = (await Post.findOne({ url })
+    const post = (await Post.findOne(
+      { url },
+      { title: 1, content: 1, categories: 1, comments: 1 }
+    )
       .populate("categories")
       .populate("comments")
       .lean()) as PostType;
     post._id = post._id?.toString();
-    const previousPost = await Post.find({ _id: { $lt: post._id } })
+    const previousPost = await Post.find(
+      { _id: { $lt: post._id } },
+      { title: 1 }
+    )
       .sort({ _id: -1 })
-      .limit(1);
-    const nextPost = await Post.find({ _id: { $gt: post._id } })
+      .limit(1)
+      .lean();
+    const nextPost = await Post.find({ _id: { $gt: post._id } }, { title: 1 })
       .sort({ _id: 1 })
-      .limit(1);
+      .limit(1)
+      .lean();
 
     return {
       detailPost: post,

@@ -4,8 +4,6 @@ import Link from "next/link";
 import * as styles from "./CategoryBar.css";
 import { SelectOption } from "@/app/types/category.type";
 import { usePathname } from "next/navigation";
-import pageStore from "@/app/store/pageStore";
-import { useEffect } from "react";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { vars } from "@/app/styles/themes/theme.css";
 interface PropType {

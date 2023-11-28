@@ -30,5 +30,7 @@ const postSchema = new mongoose.Schema({
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
+postSchema.index({ categories: 1, createdAt: -1 });
+
 const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
 export default Post;
