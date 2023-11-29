@@ -3,7 +3,6 @@ import { sidebarLinks } from "../../constants/index";
 import * as styles from "./Topbar.css";
 import Logo from "../svg/navbar/Logo";
 import ToggleBtn from "./ToggleTheme/ToggleBtn";
-
 export default function Topbar() {
   return (
     <nav className={styles.topbar}>

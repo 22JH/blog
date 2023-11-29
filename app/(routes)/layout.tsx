@@ -3,9 +3,8 @@ import "../globals.css";
 import BottomBar from "../components/navbars/BottomBar";
 import Topbar from "../components/navbars/Topbar";
 import * as styles from "./RootLayout.css";
-import { darkTheme, ligthTheme } from "../styles/themes/theme.css";
-import { cookies } from "next/headers";
 import Footer from "../components/navbars/Footer";
+import ThemeProvider from "../components/home/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Joo",
@@ -18,20 +17,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = cookies();
-  const theme = cookieStore.get("theme");
   return (
     <html lang="ko-KR">
       <link rel="icon" href="/favicon.ico" sizes="any" />
-      <body className={theme?.value === "light" ? ligthTheme : darkTheme}>
-        <Topbar />
-        <div className={styles.mainContentContainer}>
-          <main className={styles.mainContent}>
-            {children}
-            <Footer />
-          </main>
-        </div>
-        <BottomBar />
+      <body>
+        <ThemeProvider>
+          <Topbar />
+          <div className={styles.mainContentContainer}>
+            <main className={styles.mainContent}>
+              {children}
+              <Footer />
+            </main>
+          </div>
+          <BottomBar />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,32 +1,29 @@
+"use client";
+
 import { moon } from "../icon/moon";
 import { sun } from "../icon/sun";
-import { cookies } from "next/headers";
 import { toggleBtn } from "./ToggleBtn.css";
 import SVGmorph from "./SVGmorph";
+import themeStore from "@/app/store/themeStore";
 
 export default function ToggleBtn() {
-  const theme = cookies().get("theme");
-  const handleTheme = async () => {
-    "use server";
-    if (theme?.value === "dark" || !theme?.value) {
-      cookies().set("theme", "light");
-    } else {
-      cookies().set("theme", "dark");
-    }
+  const { isDark, setIsDark } = themeStore();
+  const theme = localStorage.getItem("theme");
+  const handleTheme = () => {
+    setIsDark(!isDark);
+    localStorage.setItem("theme", theme === "dark" ? "light" : "dark");
   };
   return (
-    <form action={handleTheme}>
-      <button className={toggleBtn}>
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <SVGmorph paths={[sun, moon, sun]} theme={theme?.value || "dark"} />
-        </svg>
-      </button>
-    </form>
+    <button className={toggleBtn} onClick={() => handleTheme()}>
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <SVGmorph paths={[sun, moon, sun]} isDark={isDark} />
+      </svg>
+    </button>
   );
 }

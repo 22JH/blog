@@ -7,21 +7,21 @@ import { pathStyle } from "./SVGmorph.css";
 
 export default function SVGmorph({
   paths,
-  theme,
+  isDark,
 }: {
   paths: string[];
-  theme: string;
+  isDark: boolean;
 }) {
   const progress = useMotionValue(0);
   const path = useTransform(progress, [0, 1, 2], paths, {
     mixer: (from, to) => interpolate(from, to, { maxSegmentLegth: 5 }),
   });
-  const themeColor = theme === "dark" ? 1 : 0;
+  const themeColor = isDark ? 1 : 0;
   useEffect(() => {
     animate(progress, themeColor, {
       duration: 0.15,
       ease: "easeInOut",
     });
-  }, [theme]);
+  }, [isDark]);
   return <motion.path d={path} className={pathStyle} />;
 }
