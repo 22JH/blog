@@ -34,8 +34,8 @@ export default function PostList({ posts, category }: PropType) {
                     style={{ objectFit: "cover" }}
                     priority={true}
                     placeholder="blur"
-                    blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mMUqAcAAKUAkcwegSwAAAAASUVORK5CYII"
-                    quality={20}
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+                    quality={30}
                   />
                 ) : (
                   <Image

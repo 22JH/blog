@@ -7,6 +7,7 @@ import { createCategory, deleteCategory } from "./category.action";
 import { PostType } from "@/app/types/post.type";
 import Category from "../models/category.model";
 import "../models/comment.model";
+import { SelectOption } from "@/app/types/category.type";
 export async function createPost({
   title,
   content,
@@ -89,11 +90,11 @@ export async function getPostByCategory(
         .sort({ _id: -1 })
         .lean()) as PostType[];
 
-      const totalPost = (await Category.find(
-        {},
+      const totalPost = (await Category.findOne(
+        { label: category },
         { count: 1 }
-      ).lean()) as number;
-      const totalPage = Math.ceil(totalPost / pageSize);
+      ).lean()) as SelectOption;
+      const totalPage = Math.ceil(totalPost.count! / pageSize);
       return { posts, totalPage };
     }
   } catch (err) {
