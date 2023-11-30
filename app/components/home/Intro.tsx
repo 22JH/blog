@@ -1,8 +1,12 @@
-import Three from "./Three";
 import * as styles from "./Intro.css";
 import { socialLinks } from "@/app/constants/socials";
 import Link from "next/link";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
+import dynamic from "next/dynamic";
+import ThreeFallback from "./ThreeFallback";
+
+const Three = dynamic(() => import("./Three"), {
+  loading: () => <ThreeFallback />,
+});
 
 export default function Intro() {
   return (
