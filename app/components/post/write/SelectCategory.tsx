@@ -21,15 +21,11 @@ export default function Category({
   const [isLoading, setIsLoading] = useState(false);
   const [defaultOption, setDefaultOption] = useState<SelectOption[]>([]);
   const handleCreate = (inputValue: string) => {
-    try {
-      setIsLoading(true);
-      const newOption: SelectOption = createOption(inputValue);
-      setIsLoading(false);
-      setSelectCategory([...selectCategory, newOption]);
-      setDefaultOption((prev) => [...prev, newOption]);
-    } catch (err) {
-      throw new Error(`Failed to create category ${err}`);
-    }
+    setIsLoading(true);
+    const newOption: SelectOption = createOption(inputValue);
+    setIsLoading(false);
+    setSelectCategory([...selectCategory, newOption]);
+    setDefaultOption((prev) => [...prev, newOption]);
   };
 
   useEffect(() => {
@@ -37,6 +33,7 @@ export default function Category({
       try {
         const category = await getCategory();
         setDefaultOption(category);
+        console.log(category);
       } catch (err: any) {
         throw new Error(`Faild to get categories ${err}`);
       }
@@ -52,7 +49,10 @@ export default function Category({
       onCreateOption={handleCreate}
       options={defaultOption}
       isClearable={false}
-      onChange={(select) => setSelectCategory(select as SelectOption[])}
+      onChange={(select) => {
+        console.log(select);
+        setSelectCategory(select as SelectOption[]);
+      }}
     />
   );
 }

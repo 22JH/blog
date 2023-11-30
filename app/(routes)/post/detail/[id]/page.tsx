@@ -30,7 +30,7 @@ export const generateMetadata = async ({
   params,
 }: PropType): Promise<Metadata> => {
   const { detailPost } = await getPost(params.id);
-  const keywords = detailPost.categories.map((category) => category.label);
+  const keywords = detailPost.categories;
   const title = decodeURI(params.id).replaceAll("-", " ");
   return {
     title,

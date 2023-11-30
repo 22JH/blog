@@ -17,14 +17,13 @@ export async function createPost({
   try {
     connectToDB();
 
-    const categoryId = await createCategory(categories);
-
+    await createCategory(categories);
     const url = changeKrUrl(title);
     await Post.create({
       title,
       content,
       url,
-      categories: categoryId,
+      categories,
       previewContent,
       thumbnail,
     });
@@ -38,26 +37,24 @@ export async function getAllPost(
   pageSize = 5
 ): Promise<{
   posts: PostType[];
-  hasNextPage: boolean;
   totalPost: number;
   totalPage: number;
 }> {
   try {
     connectToDB();
     const skipAmount = (pageNumber - 1) * pageSize;
-    const posts = Post.find(
+    const posts = (await Post.find(
       {},
-      { title: 1, createdAt: 1, categories: 1, previewContent: 1 }
+      { title: 1, createdAt: 1, categories: 1, previewContent: 1, thumbnail: 1 }
     )
-      .populate("categories", { label: 1 })
       .skip(skipAmount)
       .limit(pageSize)
+      .sort({ _id: -1 })
       .lean()
-      .exec() as unknown as PostType[];
+      .exec()) as unknown as PostType[];
     const totalPost = await Post.countDocuments().lean();
-    const hasNextPage = totalPost > skipAmount + posts.length;
     const totalPage = Math.ceil(totalPost / pageSize);
-    return { posts, hasNextPage, totalPost, totalPage };
+    return { posts, totalPost, totalPage };
   } catch (err: any) {
     throw new Error(`글 목록 가져오기 실패 : ${err.message}`);
   }
@@ -72,32 +69,33 @@ export async function getPostByCategory(
 
   try {
     if (decodedCategory === "all") {
-      const { posts, hasNextPage, totalPage } = await getAllPost(
-        pageNumber,
-        pageSize
-      );
-      return { posts, hasNextPage, totalPage };
+      const { posts, totalPage } = await getAllPost(pageNumber, pageSize);
+      return { posts, totalPage };
     } else {
       connectToDB();
       const skipAmount = (pageNumber - 1) * pageSize;
-      const getCategory = await Category.findOne({
-        label: decodedCategory,
-      }).exec();
       const posts = (await Post.find(
-        { categories: getCategory._id },
-        { title: 1, createdAt: 1, categories: 1, previewContent: 1 }
+        { categories: category },
+        {
+          title: 1,
+          createdAt: 1,
+          categories: 1,
+          previewContent: 1,
+          thumbnail: 1,
+        }
       )
-        .populate("categories", { label: 1 })
         .skip(skipAmount)
         .limit(pageSize)
+        .sort({ _id: -1 })
         .lean()) as PostType[];
 
-      const totalPost = await Post.countDocuments({
-        categories: getCategory._id,
-      }).lean();
-      const hasNextPage = totalPost > skipAmount + posts.length;
+      const totalPost = (await Category.find(
+        {},
+        { count: 1 }
+      ).lean()) as number;
       const totalPage = Math.ceil(totalPost / pageSize);
-      return { posts, hasNextPage, totalPost, totalPage };
+      console.log(posts);
+      return { posts, totalPage };
     }
   } catch (err) {
     throw new Error(`카테고리 글 목록 가져오기 실패 : ${err}`);
@@ -114,25 +112,29 @@ export async function getPost(href: string): Promise<PostWithNeighborsType> {
   try {
     connectToDB();
     const url = decodeURI(href);
+
     const post = (await Post.findOne(
       { url },
-      { title: 1, content: 1, categories: 1, comments: 1 }
-    )
-      .populate("categories")
-      .populate("comments")
-      .lean()) as PostType;
-    post._id = post._id?.toString();
-    const previousPost = await Post.find(
-      { _id: { $lt: post._id } },
-      { title: 1 }
-    )
-      .sort({ _id: -1 })
-      .limit(1)
-      .lean();
-    const nextPost = await Post.find({ _id: { $gt: post._id } }, { title: 1 })
-      .sort({ _id: 1 })
-      .limit(1)
-      .lean();
+      {
+        title: 1,
+        content: 1,
+        categories: 1,
+        comments: 1,
+        previewContent: 1,
+        url: 1,
+      }
+    ).lean()) as PostType;
+
+    const [previousPost, nextPost] = await Promise.all([
+      Post.find({ _id: { $lt: post._id } }, { title: 1 })
+        .sort({ _id: -1 })
+        .limit(1)
+        .lean(),
+      Post.find({ _id: { $gt: post._id } }, { title: 1 })
+        .sort({ _id: 1 })
+        .limit(1)
+        .lean(),
+    ]);
 
     return {
       detailPost: post,
@@ -159,20 +161,20 @@ export async function updatePost({
     const newUrl = changeKrUrl(title);
 
     const removedCategories = prevCategory?.filter(
-      (prevCat) => !categories.find((cat) => cat.label === prevCat.label)
+      (prevCat) => !categories.find((cat) => cat === prevCat)
     );
     const addedCategories = categories.filter(
-      (category) => !prevCategory?.find((cat) => cat.label === category.label)
+      (category) => !prevCategory?.find((cat) => cat === category)
     );
 
-    const addedId = await createCategory(addedCategories);
-    const removedId = await deleteCategory(removedCategories);
-    const prevId = prevCategory?.map((category) => category._id);
+    await createCategory(addedCategories);
+    await deleteCategory(removedCategories);
+    // const prevId = prevCategory?.map((category) => category._id);
 
-    const existingCategoryIds = prevId?.filter(
-      (id) => !removedId?.includes(id!)
-    );
-    const finalCategoryIds = existingCategoryIds?.concat(addedId);
+    // const existingCategoryIds = prevId?.filter(
+    //   (id) => !removedId?.includes(id!)
+    // );
+    // const finalCategoryIds = existingCategoryIds?.concat(addedId);
     await Post.updateOne(
       {
         url: decodeUrl,
@@ -182,7 +184,7 @@ export async function updatePost({
         thumbnail,
         content,
         url: newUrl,
-        categories: finalCategoryIds,
+        categories,
         previewContent,
       }
     );

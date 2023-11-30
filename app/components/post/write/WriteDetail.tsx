@@ -37,6 +37,7 @@ export default function WriteDetail({
   const pathname = usePathname();
   const urlArray = pathname.split("/");
   const params = urlArray[urlArray.length - 1];
+
   /** 선택한 카테고리 */
   const handleCategory = (select: SelectOption[]) => {
     setSelectCategory(select);
@@ -51,14 +52,16 @@ export default function WriteDetail({
 
   /** 전송버튼 클릭시 */
   const handleSubmit = async () => {
+    const categories = selectCategory.map((category) => category.label);
+    const prevCategory = store.categories.map((category) => category.label);
     if (pathname.includes("/update")) {
       await updatePost({
         title,
         content,
         thumbnail,
         url: params,
-        categories: selectCategory,
-        prevCategory: store.categories,
+        categories,
+        prevCategory,
         previewContent,
       });
     } else {
@@ -66,7 +69,7 @@ export default function WriteDetail({
         title,
         content,
         thumbnail,
-        categories: selectCategory,
+        categories,
         previewContent,
       });
     }

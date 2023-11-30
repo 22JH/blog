@@ -1,6 +1,7 @@
 import PostList from "@/app/components/post/list/PostList";
 import PaginationBar from "@/app/components/post/list/PaginationBar";
 import { Metadata } from "next";
+import { getPostByCategory } from "@/app/lib/actions/post.actions";
 
 interface PropType {
   params: {
@@ -20,25 +21,11 @@ export const generateMetadata = async ({
 
 export default async function Post({ params, searchParams }: PropType) {
   const page = Number(searchParams.page as string);
-  // const { posts, totalPage } = await getPostByCategory(
-  //   params.category,
-  //   Number(page)
-  // );
   const decodedCategory = decodeURI(params.category);
-  // const { posts, totalPage } = await getPostByCategory(
-  //   params.category,
-  //   Number(page)
-  // );
-
-  const res = await fetch(
-    `https://www.joo-dev.com/api/post/${params.category}?page=${page}`,
-    { cache: "no-store" }
+  const { posts, totalPage } = await getPostByCategory(
+    params.category,
+    Number(page)
   );
-
-  const data = await res.json();
-  const posts = data.posts;
-
-  const totalPage = data.totalPage;
 
   return (
     <>

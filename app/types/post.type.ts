@@ -5,10 +5,10 @@ export interface PostType {
   _id?: string;
   thumbnail?: string;
   url?: string;
-  prevCategory?: SelectOption[];
+  prevCategory?: string[];
   title: string;
   content: string;
-  categories: SelectOption[];
+  categories: string[];
   previewContent: string;
   createdAt?: string;
   comments?: CommentType[];

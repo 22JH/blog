@@ -39,10 +39,14 @@ export default function Write() {
     if (url && pathname.includes("/update")) {
       (async function () {
         const { detailPost } = await getPost(url);
+        const defaultCategories = detailPost.categories.map((category) => {
+          return { label: category, value: category + category };
+        });
+
         setInitalContent(detailPost.content);
         setTitle(detailPost.title);
         setThumbnail(detailPost.thumbnail);
-        store.setSelectCategory(detailPost.categories);
+        store.setSelectCategory(defaultCategories);
         store.setPreviewContent(detailPost.previewContent);
       })();
     }

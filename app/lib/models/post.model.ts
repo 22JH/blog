@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import { CommentSchema } from "./comment.model";
+import { categorySchema } from "./category.model";
 
 const postSchema = new mongoose.Schema({
   title: {
@@ -22,12 +24,13 @@ const postSchema = new mongoose.Schema({
   thumbnail: {
     type: String,
   },
-  categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
+  categories: [String],
+  // categories: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
   previewContent: {
     type: String,
   },
-
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  comments: [CommentSchema],
+  // comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 postSchema.index({ categories: 1, createdAt: -1 });

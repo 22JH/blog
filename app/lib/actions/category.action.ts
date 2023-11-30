@@ -7,10 +7,10 @@ import { connectToDB } from "../mongoose";
 export async function getCategory(): Promise<SelectOption[]> {
   connectToDB();
   try {
-    const category = (await Category.find().lean()) as SelectOption[];
-    category.forEach((category) => {
-      category._id = category._id?.toString();
-    });
+    const category = (await Category.find(
+      {},
+      { label: 1, count: 1, value: 1 }
+    ).lean()) as SelectOption[];
     return category;
   } catch (err: any) {
     throw new Error(`카테고리 가져오기 실패 : ${err.message}`);
@@ -18,42 +18,37 @@ export async function getCategory(): Promise<SelectOption[]> {
 }
 
 export async function createCategory(
-  categories: SelectOption[]
+  categories: string[]
 ): Promise<string[] | undefined> {
   if (!categories) return;
   try {
     connectToDB();
-    let categoryIds = [];
+    console.log(categories, "cateogries");
     for (let category of categories) {
-      let res = await Category.findOneAndUpdate(
-        { label: category.label, value: category.value },
-        { $inc: { count: 1 } },
+      await Category.findOneAndUpdate(
+        { label: category },
+        { $inc: { count: 1 }, $set: { value: `${category} ${category}` } },
         { upsert: true, new: true }
       );
-      categoryIds.push(res._id.toString());
     }
-    return categoryIds;
   } catch (err: any) {
     throw new Error(`카테고리 생성 실패 : ${err.message}`);
   }
 }
 
 export async function deleteCategory(
-  categories: SelectOption[] | undefined
+  categories: string[] | undefined
 ): Promise<string[] | undefined> {
   if (!categories) return;
   try {
     connectToDB();
-    let categoryIds = [];
     for (let category of categories) {
-      let res = await Category.findOneAndUpdate(
-        { label: category.label, value: category.value },
+      await Category.findOneAndUpdate(
+        { label: category },
         { $inc: { count: -1 } },
         { upsert: true, new: true }
       );
-      categoryIds.push(res._id.toString());
     }
-    return categoryIds;
   } catch (err: any) {
     throw new Error(`카테고리 삭제 실패 : ${err.message}`);
   }
