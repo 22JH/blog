@@ -32,4 +32,10 @@
   - global theme 구성 후 dark/light 동적으로 구현
  
 ## 배포
-- 진행중
+- server -> 기존에 사용중이던 lightsail에 배포
+- client -> vercel에 배포
+  - 문제점
+    - elastic beanstalk으로 배포하려 했으나 role에서 자꾸 에러가 나서 vercel로 배포
+    - local에 비해서 속도가 2~3배정도 차이가 난다.
+    - stackoverflow에 질문한 결과 vercel과 mongodb 사이의 이슈라고한다
+    - eleastic beanstalk으로 재배포 중 (에러해결중)
