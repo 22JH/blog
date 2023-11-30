@@ -91,7 +91,7 @@ export async function getPostByCategory(
         .lean()) as PostType[];
 
       const totalPost = (await Category.findOne(
-        { label: category },
+        { label: decodedCategory },
         { count: 1 }
       ).lean()) as SelectOption;
       const totalPage = Math.ceil(totalPost.count! / pageSize);
