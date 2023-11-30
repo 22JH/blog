@@ -33,7 +33,6 @@ export default function Category({
       try {
         const category = await getCategory();
         setDefaultOption(category);
-        console.log(category);
       } catch (err: any) {
         throw new Error(`Faild to get categories ${err}`);
       }
@@ -50,7 +49,6 @@ export default function Category({
       options={defaultOption}
       isClearable={false}
       onChange={(select) => {
-        console.log(select);
         setSelectCategory(select as SelectOption[]);
       }}
     />

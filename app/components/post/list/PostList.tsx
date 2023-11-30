@@ -16,7 +16,6 @@ export default function PostList({ posts, category }: PropType) {
       <h1 className={styles.categoryTitle}>{category}</h1>
       <div className={styles.postContainer}>
         {posts.map((postInfo: PostType) => {
-          console.log(postInfo);
           const date = getRelativeTime(postInfo.createdAt!);
           return (
             <Link

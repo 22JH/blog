@@ -75,7 +75,7 @@ export async function getPostByCategory(
       connectToDB();
       const skipAmount = (pageNumber - 1) * pageSize;
       const posts = (await Post.find(
-        { categories: category },
+        { categories: decodedCategory },
         {
           title: 1,
           createdAt: 1,
@@ -94,7 +94,6 @@ export async function getPostByCategory(
         { count: 1 }
       ).lean()) as number;
       const totalPage = Math.ceil(totalPost / pageSize);
-      console.log(posts);
       return { posts, totalPage };
     }
   } catch (err) {

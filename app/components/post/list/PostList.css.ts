@@ -53,14 +53,17 @@ export const post = style({
   borderBottomWidth: 1.5,
   borderBottomStyle: "solid",
   borderBottomColor: vars.themeColor.borderColor.notHoverColor,
-  ":hover": {
-    borderBottomColor: vars.themeColor.borderColor.hoverColor,
-    transition: "0.3s all",
-  },
+
   "@media": {
     "(max-width: 820px)": {
       flexDirection: "column",
       paddingBottom: "30px",
+    },
+    "(min-width: 820px)": {
+      ":hover": {
+        borderBottomColor: vars.themeColor.borderColor.hoverColor,
+        transition: "0.3s all",
+      },
     },
   },
 });

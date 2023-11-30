@@ -23,7 +23,6 @@ export async function createCategory(
   if (!categories) return;
   try {
     connectToDB();
-    console.log(categories, "cateogries");
     for (let category of categories) {
       await Category.findOneAndUpdate(
         { label: category },

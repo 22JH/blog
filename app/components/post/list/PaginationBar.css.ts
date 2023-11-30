@@ -19,7 +19,11 @@ export const pageNumber = style({
   display: "flex",
   fontSize: "20px",
   margin: "0 calc(80% / 5 / 2)",
-  ":hover": {
-    color: vars.themeColor.fontColor.accentColor,
+  "@media": {
+    "(min-width: 820px)": {
+      ":hover": {
+        color: vars.themeColor.fontColor.accentColor,
+      },
+    },
   },
 });

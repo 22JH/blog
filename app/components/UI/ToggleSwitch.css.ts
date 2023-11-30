@@ -26,9 +26,14 @@ export const switchLabel = style({
   borderStyle: "solid",
   borderRadius: "20px",
   transition: "0.2s",
-  ":hover": {
-    background: vars.themeColor.backgroundColor.accentColor,
+  "@media": {
+    "(min-width: 820px)": {
+      ":hover": {
+        background: vars.themeColor.backgroundColor.accentColor,
+      },
+    },
   },
+
   selectors: {
     [`${toggleSwitch}:checked + &`]: {
       background: vars.themeColor.borderColor.hoverColor,

@@ -20,7 +20,6 @@ const ThemeProvider = ({ children }: any) => {
         theme === "dark" ? "rgb(16,16,16)" : "rgb(245,245,245";
     }
   }, [theme, mounted]);
-  console.log(theme, "4512,3,4");
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
