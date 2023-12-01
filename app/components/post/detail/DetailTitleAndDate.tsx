@@ -1,4 +1,3 @@
-import { SelectOption } from "@/app/types/category.type";
 import * as styles from "./DetailTitleAndDate.css";
 
 interface PropType {

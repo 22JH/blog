@@ -32,9 +32,15 @@ export const generateMetadata = async ({
   const { detailPost } = await getPost(params.id);
   const keywords = detailPost.categories;
   const title = decodeURI(params.id).replaceAll("-", " ");
+  const description = detailPost.previewContent;
   return {
     title,
     keywords,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
   };
 };
 
