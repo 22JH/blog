@@ -122,6 +122,7 @@ export async function getPost(href: string): Promise<PostWithNeighborsType> {
         comments: 1,
         previewContent: 1,
         url: 1,
+        createdAt: 1,
       }
     ).lean()) as PostType;
 
