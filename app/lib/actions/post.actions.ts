@@ -193,3 +193,18 @@ export async function updatePost({
     throw new Error(`글 수정 실패 : ${err.message}`);
   }
 }
+
+export async function getPostsUrl() {
+  try {
+    connectToDB();
+    const posts = (await Post.find(
+      {},
+      { url: 1, createdAt: 1, title: 1, previewContent: 1 }
+    )
+      .lean()
+      .exec()) as unknown as PostType[];
+    return posts;
+  } catch (err: any) {
+    throw new Error(`글 목록 가져오기 실패 : ${err.message}`);
+  }
+}

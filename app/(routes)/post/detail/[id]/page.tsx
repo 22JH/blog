@@ -31,15 +31,27 @@ export const generateMetadata = async ({
 }: PropType): Promise<Metadata> => {
   const { detailPost } = await getPost(params.id);
   const keywords = detailPost.categories;
-  const title = decodeURI(params.id).replaceAll("-", " ");
+  const decodedTitle = decodeURI(params.id).replaceAll("-", " ");
   const description = detailPost.previewContent;
+  const imageUrl = detailPost.thumbnail
+    ? detailPost.thumbnail
+    : "/assets/no-img.svg";
+
   return {
-    title,
+    title: decodedTitle,
     keywords,
     description,
+    alternates: {
+      canonical: `/post/detail/${detailPost.title}`,
+    },
     openGraph: {
-      title,
+      title: decodedTitle,
       description,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/post/detail/${detailPost.url}`,
+      type: "article",
+      images: imageUrl,
+      publishedTime: detailPost.createdAt,
+      tags: detailPost.categories,
     },
   };
 };

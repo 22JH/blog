@@ -7,8 +7,15 @@ import Footer from "../components/navbars/Footer";
 import ThemeProvider from "../components/home/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Joo",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
+  title: {
+    default: "Joo-dev",
+    template: `%s | Joo-dev`,
+  },
   description: "이주형의 개발 블로그",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: ["개발 블로그", "프론트엔드", "프론트엔드 블로그"],
 };
 
