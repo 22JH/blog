@@ -5,7 +5,7 @@ export default async function sitemap() {
 
   const postInfo = posts.map((post) => {
     return {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${post.url}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}post/detail/${post.url}`,
       lastModified: post.createdAt,
     };
   });
