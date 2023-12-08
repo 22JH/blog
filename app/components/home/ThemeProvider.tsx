@@ -1,6 +1,6 @@
 "use client";
 
-import { darkTheme, ligthTheme, vars } from "@/app/styles/themes/theme.css";
+import { darkTheme, ligthTheme } from "@/app/styles/themes/theme.css";
 import "../../globals.css";
 import { themeContainer } from "./ThemeProvider.css";
 import { useEffect, useState } from "react";

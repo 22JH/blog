@@ -14,7 +14,7 @@ const postListLayout = async ({ children }: { children: React.ReactNode }) => {
           <CategoryBar categories={categories} totalPost={totalPost} />
         )}
       </div>
-      <BackBtn color={"white"} />
+      <BackBtn />
       {children}
     </>
   );

@@ -19,8 +19,7 @@ export default function DeleteBtn({ userEmail, comment, postId }: PropType) {
   return (
     <div
       onClick={() => handleDeleteComment()}
-      className={styles.deleteBtnContainer}
-    >
+      className={styles.deleteBtnContainer}>
       <svg
         width="18"
         height="18"
@@ -29,8 +28,7 @@ export default function DeleteBtn({ userEmail, comment, postId }: PropType) {
         xmlns="http://www.w3.org/2000/svg"
         style={assignInlineVars({
           cursor: "pointer",
-        })}
-      >
+        })}>
         <path
           className={styles.deleteBtn}
           fillRule="evenodd"
