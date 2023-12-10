@@ -41,9 +41,9 @@ export const generateMetadata = async ({
     title: decodedTitle,
     keywords,
     description,
-    alternates: {
-      canonical: `/post/detail/${detailPost.title}`,
-    },
+    // alternates: {
+    //   canonical: `/post/detail/${detailPost.title}`,
+    // },
     openGraph: {
       title: decodedTitle,
       description,
@@ -68,8 +68,7 @@ export default async function Detail({ params }: PropType) {
         borderRadius: "5px",
         display: "flex",
         flexDirection: "column",
-      })}
-    >
+      })}>
       <DetailTitleAndDate
         title={detailPost.title}
         categories={detailPost.categories}
