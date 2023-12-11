@@ -49,8 +49,11 @@ export default function Resume() {
       <div>
         <h4 className={styles.resumeSubTitle}>Careers</h4>
         <h5 className={styles.resumeAccent}>
-          수잇(Suit) / Software Engineer (2023.07 ~ 12월 퇴사 예정){" "}
+          수잇(Suit) / Software Engineer (2023.07 ~ 재직중){" "}
         </h5>
+        <p className={styles.resumeText}>
+          청년 사관학교의 지원을 받는 창업 프로젝트
+        </p>
         <p className={styles.resumeText}>셀프 헤어스타일링을 위한 키오스크</p>
         <p className={styles.resumeText}>웹 기반 키오스크 제작</p>
         <p className={styles.resumeText}>Frontend, CI/CD, IoT 담당</p>
@@ -73,7 +76,7 @@ export default function Resume() {
         <h4 className={styles.resumeSubTitle}>Projects</h4>
         <div>
           <h5 className={styles.resumeAccent}>
-            공유사이 / 토이 프로젝트 (22.04.29 ~ 21.05.22){" "}
+            공유사이 / 토이 프로젝트 (23.04.10 ~ 23.05.22){" "}
             <Link
               href="https://github.com/22JH/share42"
               target="_blacnk"
@@ -107,7 +110,7 @@ export default function Resume() {
         </div>
         <div>
           <h5 className={styles.resumeAccent}>
-            Car born / 토이 프로젝트 (20.11.20 ~ 21.03.01){" "}
+            Car born / 토이 프로젝트 (23.02.20 ~ 23.04.07){" "}
             <Link
               href="https://github.com/22JH/car-born-project"
               target="_blacnk"
@@ -133,7 +136,7 @@ export default function Resume() {
         </div>
         <div>
           <h5 className={styles.resumeAccent}>
-            BP / 토이 프로젝트 (20.11.20 ~ 21.03.01){" "}
+            BP / 토이 프로젝트 (23.01.03 ~ 23.02.17){" "}
             <Link
               href="https://github.com/22JH/kiosk-bp"
               target="_blacnk"
@@ -160,6 +163,17 @@ export default function Resume() {
       </div>
       <div>
         <div>
+          <h4 className={styles.resumeSubTitle}>Experience</h4>
+          <h5 className={styles.resumeAccent}>
+            삼성 청년 소프트 아카데미 (2022.07 ~ 2023.06)
+          </h5>
+          <p className={styles.resumeText}>
+            삼성 전자 주관의 소프트웨어 교육 아카데미, 1600시간 교육 이수
+          </p>
+          <p className={styles.resumeText}>실무에 가까운 프로젝트들을 수행</p>
+          <p className={styles.resumeText}>삼성전자 수여 2회 수상</p>
+        </div>
+        <div>
           <h5 className={styles.resumeAccent}>42Seoul (2022.05 ~ 2022.07)</h5>
           <p className={styles.resumeText}>
             이노베이션 아카데미 주관의 C언어만을 이용하는 부트캠프, 250시간 교육
@@ -171,19 +185,6 @@ export default function Resume() {
           <p className={styles.resumeText}>
             동시에 지원했던 삼성청년소프트 아카데미(SSAFY)에 합격 후 퇴소
           </p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <h4 className={styles.resumeSubTitle}>Experience</h4>
-          <h5 className={styles.resumeAccent}>
-            삼성 청년 소프트 아카데미 (2022.07 ~ 2023.06)
-          </h5>
-          <p className={styles.resumeText}>
-            삼성 전자 주관의 소프트웨어 교육 아카데미, 1600시간 교육 이수
-          </p>
-          <p className={styles.resumeText}>실무에 가까운 프로젝트들을 수행</p>
-          <p className={styles.resumeText}>삼성전자 수여 2회 수상</p>
         </div>
       </div>
       <div>
