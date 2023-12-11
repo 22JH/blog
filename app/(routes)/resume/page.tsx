@@ -15,7 +15,7 @@ export default function Resume() {
         <h2 className={styles.resumeTitle}>이주형 Frontend Engineer</h2>
         <div className={styles.linkBtnFrame}>
           <Link
-            href="https://docs.google.com/document/d/1YQIrDD9qXx21BTihJxhY2EnPDLMRQxOevVURQ2HAdnE/edit"
+            href="https://docs.google.com/document/d/e/2PACX-1vSEGJBXUn5DrAgWazJXEkhSO3CfjcbWAugcdUMLgeuhWg_wDtdUFBNQZJM-eptqIMi6qSO20ke4mZkQ/pub"
             target="_blacnk"
             rel="noreferrer"
             className={styles.linkBtn}

@@ -19,7 +19,6 @@ export default function PaginationBar({
 }) {
   const [index, setIndex] = useState<number>(1);
   const [pages, setPages] = useState<number[]>([]);
-  console.log(totalPage);
   useEffect(() => {
     const pageArr = [];
     for (let i = index; i <= index + 4; i++) {
