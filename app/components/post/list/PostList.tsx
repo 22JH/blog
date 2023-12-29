@@ -22,8 +22,7 @@ export default function PostList({ posts, category }: PropType) {
               href={{ pathname: `/post/detail/${changeKrUrl(postInfo.title)}` }}
               style={{ color: "white" }}
               key={postInfo._id}
-              className={styles.post}
-            >
+              className={styles.post}>
               <div className={styles.thumbnail}>
                 {postInfo?.thumbnail ? (
                   <Image

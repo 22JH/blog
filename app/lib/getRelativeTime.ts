@@ -12,7 +12,6 @@ export const getRelativeTime = (postDate: string) => {
   const diffWeeks = now.diff(date, "week");
   const diffMonths = now.diff(date, "month");
   const diffYears = now.diff(date, "year");
-
   if (diffMinutes < 1) {
     return "방금 전";
   } else if (diffMinutes < 60) {
@@ -21,7 +20,7 @@ export const getRelativeTime = (postDate: string) => {
     return `${diffHours}시간 전`;
   } else if (diffDays < 7) {
     return `${diffDays}일 전`;
-  } else if (diffWeeks < 4) {
+  } else if (diffWeeks < 5) {
     return `${diffWeeks}주 전`;
   } else if (diffMonths < 12) {
     return `${diffMonths}개월 전`;
