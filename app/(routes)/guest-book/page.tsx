@@ -1,4 +1,3 @@
-import GuestBookInput from "@/app/components/guestBook/GusetBookInput";
 import GuestBookComments from "@/app/components/guestBook/GuestBookComments";
 import { getGusetBook } from "@/app/lib/actions/guestBook.action";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
@@ -12,10 +11,9 @@ export default async function GuestBook() {
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
-      })}
-    >
+      })}>
       <GuestBookComments comments={comments} />
-      <GuestBookInput />
+      {/* <GuestBookInput />  useOptimistic을 사용하고 addOptimistic을 prop해주기 위해 GuestBookComments 내로 이동*/}
     </div>
   );
 }

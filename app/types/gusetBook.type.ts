@@ -4,4 +4,5 @@ export interface GusetBookType {
   name: string;
   thumbnail: string;
   createdAt?: string;
+  pending?: boolean;
 }

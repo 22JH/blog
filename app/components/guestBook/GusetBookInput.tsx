@@ -3,13 +3,17 @@
 import SendBtn from "../svg/SendBtn";
 import { useEffect, useState } from "react";
 import { createGuestBook } from "@/app/lib/actions/guestBook.action";
-import { getSession, getProviders, signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { UserType } from "@/app/types/post.type";
 import * as styles from "./GuestBookInput.css";
 import Image from "next/image";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 
-export default function GuestBookInput() {
+interface PropType {
+  addOptimisticComments: (action: string) => void;
+}
+
+export default function GuestBookInput({ addOptimisticComments }: PropType) {
   const [comment, setComment] = useState<string>("");
   const [userInfo, setUserInfo] = useState<UserType | null>(null);
 
@@ -20,6 +24,7 @@ export default function GuestBookInput() {
   const handleSubmit = async () => {
     if (!comment) return;
     if (!userInfo?.user) return;
+    addOptimisticComments(comment);
     await createGuestBook({
       text: comment,
       thumbnail: userInfo?.user.image!,
@@ -52,8 +57,7 @@ export default function GuestBookInput() {
         className={styles.commentThumbnail}
         style={assignInlineVars({
           border: `${!userInfo} && 0.5px solid rgb(80, 80, 80)`,
-        })}
-      >
+        })}>
         {userInfo && (
           <Image
             src={userInfo?.user.image || "/assets/no-img.svg"}

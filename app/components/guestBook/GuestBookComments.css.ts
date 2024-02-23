@@ -56,6 +56,8 @@ export const guestBookText = style({
   maxWidth: "35vw",
   padding: "10px",
   fontSize: "16px",
+  display: "flex",
+  flexDirection: "row",
   "@media": {
     "(max-width: 640px)": {
       maxWidth: "70vw",

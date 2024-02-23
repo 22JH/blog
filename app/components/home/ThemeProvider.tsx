@@ -27,7 +27,7 @@ const ThemeProvider = ({ children }: any) => {
 
   if (!mounted) return null;
   return (
-    <div className={` ${theme === "dark" ? darkTheme : ligthTheme}`}>
+    <div className={` ${theme === "light" ? ligthTheme : darkTheme}`}>
       <div className={themeContainer}>{children}</div>
     </div>
   );
