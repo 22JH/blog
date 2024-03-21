@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import BottomBar from "../components/navbars/BottomBar";
-import Topbar from "../components/navbars/Topbar";
+import "./globals.css";
+import BottomBar from "./components/navbars/BottomBar";
+import Topbar from "./components/navbars/Topbar";
 import * as styles from "./RootLayout.css";
-import Footer from "../components/navbars/Footer";
-import ThemeProvider from "../components/home/ThemeProvider";
+import Footer from "./components/navbars/Footer";
+import ThemeProvider from "./components/home/ThemeProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
