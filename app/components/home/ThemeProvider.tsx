@@ -8,26 +8,15 @@ import themeStore from "@/app/store/themeStore";
 
 const ThemeProvider = ({ children }: any) => {
   const { isDark } = themeStore();
-  const [theme, setTheme] = useState<string | null>("");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-  useEffect(() => {
-    if (mounted) {
-      document.body.style.backgroundColor =
-        theme === "dark" ? "rgb(16,16,16)" : "rgb(245,245,245";
-    }
-  }, [theme, mounted]);
-
-  useEffect(() => {
-    setTheme(localStorage.getItem("theme"));
+    document.body.style.backgroundColor = isDark
+      ? "rgb(16,16,16)"
+      : "rgb(245,245,245)";
   }, [isDark]);
 
-  if (!mounted) return null;
   return (
-    <div className={` ${theme === "light" ? ligthTheme : darkTheme}`}>
+    <div className={isDark ? darkTheme : ligthTheme}>
       <div className={themeContainer}>{children}</div>
     </div>
   );

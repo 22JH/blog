@@ -30,8 +30,7 @@ export function Model({ showMaterial }: { showMaterial: boolean }) {
           material={materials.textured_0}
           scale={28}
           position={[1, -5.5, 0]}
-          rotation={[1.56, 0, 0]}
-        >
+          rotation={[1.56, 0, 0]}>
           <meshStandardMaterial color="rgb(200,200,200)" />
         </mesh>
       )}
@@ -62,8 +61,7 @@ export default function Three() {
               near: 10,
               far: 1000,
               position: [-30, 5.5, 5],
-            }}
-          >
+            }}>
             <Model showMaterial={showMaterial} />
             <OrbitControls
               onEnd={(e: any) => {

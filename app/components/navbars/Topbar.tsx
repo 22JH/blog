@@ -15,8 +15,7 @@ export default function Topbar() {
             <Link
               href={link.route}
               key={link.label}
-              className={styles.topBarContent}
-            >
+              className={styles.topBarContent}>
               <link.imgURL aria-label={link.label} />
             </Link>
           );
