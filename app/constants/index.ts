@@ -1,7 +1,7 @@
 import PostBtn from "../components/svg/navbar/PostBtn";
 import HomeBtn from "../components/svg/navbar/HomeBtn";
 import GuestBookBtn from "../components/svg/navbar/GuestBookBtn";
-import ResumeBtn from "../components/svg/navbar/ResumeBtn";
+// import ResumeBtn from "../components/svg/navbar/ResumeBtn";
 export const sidebarLinks = [
   {
     imgURL: HomeBtn,
@@ -18,9 +18,9 @@ export const sidebarLinks = [
     route: "/guest-book",
     label: "Guest book",
   },
-  {
-    imgURL: ResumeBtn,
-    route: "/resume",
-    label: "Resume",
-  },
+  // {
+  //   imgURL: ResumeBtn,
+  //   route: "/resume",
+  //   label: "Resume",
+  // },
 ];
