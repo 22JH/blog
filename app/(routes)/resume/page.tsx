@@ -18,8 +18,7 @@ export default function Resume() {
             href="https://docs.google.com/document/d/e/2PACX-1vSEGJBXUn5DrAgWazJXEkhSO3CfjcbWAugcdUMLgeuhWg_wDtdUFBNQZJM-eptqIMi6qSO20ke4mZkQ/pub"
             target="_blacnk"
             rel="noreferrer"
-            className={styles.linkBtn}
-          >
+            className={styles.linkBtn}>
             <LinkBtn />
             Docs로 보기
           </Link>
@@ -27,8 +26,7 @@ export default function Resume() {
             href="https://toitoii080.notion.site/profile-7efbe046d0534835ba52b4909b9182b3?pvs=4"
             target="_blacnk"
             rel="noreferrer"
-            className={styles.linkBtn}
-          >
+            className={styles.linkBtn}>
             <LinkBtn />
             포트폴리오(Notion)
           </Link>
@@ -37,19 +35,27 @@ export default function Resume() {
       <div>
         <h4 className={styles.resumeSubTitle}>About</h4>
         <p className={styles.resumeText}>
-          Typescript와 ReactJS, NextJS로 웹 개발을 하고있습니다.
+          문제를 고민하고 탐구하는 것을 좋아하며 이를 해결해 나아가는 과정과
+          결과가 저의 원동력 입니다
         </p>
         <p className={styles.resumeText}>
-          총 1800시간의 교육을 이수했으며 5개의 팀프로젝트를 경험이 있습니다.
+          항상 앞서 문제를 해결하고 이를 팀원들과 공유하는 것을 좋아해
+          프론트엔드 팀장으로 활동하며 팀을 수상으로 이끌었습니다.
         </p>
         <p className={styles.resumeText}>
-          문제의 원인을 파악하고 해결하는 것을 즐깁니다.
+          창업을 통해 제품의 기획부터 설계 외부 디자인 팀과의 협업 MOU 개발
+          출시까지 경험하며 필요하다면 직접 모든 문제를 해결 할 준비가
+          돼있습니다.
+        </p>
+        <p className={styles.resumeText}>
+          항상 더 넓은 시야 사고의 틀을 확장하는 것을 좋아해 프론트엔드 알고리즘
+          2개의 스터디를 이끌며 다양한 사람들을 만나 문제를 공유하고 있습니다
         </p>
       </div>
       <div>
         <h4 className={styles.resumeSubTitle}>Careers</h4>
         <h5 className={styles.resumeAccent}>
-          수잇(Suit) / Software Engineer (2023.07 ~ 재직중){" "}
+          수잇(Suit) / Software Engineer (2023.07 ~ 2024.01)
         </h5>
         <p className={styles.resumeText}>
           청년 사관학교의 지원을 받는 창업 프로젝트
@@ -80,8 +86,7 @@ export default function Resume() {
             <Link
               href="https://github.com/22JH/share42"
               target="_blacnk"
-              rel="noreferrer"
-            >
+              rel="noreferrer">
               Github
             </Link>
           </h5>
@@ -114,8 +119,7 @@ export default function Resume() {
             <Link
               href="https://github.com/22JH/car-born-project"
               target="_blacnk"
-              rel="noreferrer"
-            >
+              rel="noreferrer">
               Github
             </Link>
           </h5>
@@ -140,8 +144,7 @@ export default function Resume() {
             <Link
               href="https://github.com/22JH/kiosk-bp"
               target="_blacnk"
-              rel="noreferrer"
-            >
+              rel="noreferrer">
               Github
             </Link>
           </h5>
