@@ -29,6 +29,10 @@ globalStyle(".toastui-editor-contents > *", {
   color: "white !important",
 });
 
+globalStyle(".toastui-editor-contents > h2", {
+  fontSize: "28px",
+});
+
 globalStyle(".toastui-editor-md-code-block-line-background", {
   backgroundColor: "rgb(24, 24, 24)",
 });

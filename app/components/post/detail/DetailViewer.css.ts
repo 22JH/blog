@@ -65,6 +65,12 @@ globalStyle(`${customViewer} p`, {
   fontSize: 16,
   color: vars.themeColor.fontColor.textColor + "!important",
   marginTop: 5,
+  lineHeight: 2,
+});
+
+globalStyle(`${customViewer} blockquote`, {
+  backgroundColor: vars.themeColor.backgroundColor.accentColor + "!important",
+  padding: "16px 16px",
 });
 
 globalStyle(`${customViewer} .operator`, {
@@ -78,18 +84,25 @@ globalStyle(`${customViewer} code`, {
 globalStyle(`${customViewer} h1`, {
   color: vars.themeColor.fontColor.accentColor + "!important",
   marginBottom: 18,
+  paddingBottom: 15,
 });
 globalStyle(`${customViewer} h2`, {
   color: vars.themeColor.fontColor.accentColor + "!important",
-  marginBottom: 18,
+  margin: "32px 0 25px 0",
+  paddingBottom: 15,
+  fontSize: 28,
 });
 globalStyle(`${customViewer} h3`, {
   color: vars.themeColor.fontColor.accentColor + "!important",
+  margin: "30px 0 25px 0",
   marginBottom: 18,
+  fontSize: 24,
 });
 globalStyle(`${customViewer} h4`, {
   color: vars.themeColor.fontColor.accentColor + "!important",
+  margin: "25px 0 20px 0",
   marginBottom: 18,
+  fontSize: 20,
 });
 globalStyle(`${customViewer} h5`, {
   color: vars.themeColor.fontColor.accentColor + "!important",
